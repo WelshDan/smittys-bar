@@ -55,8 +55,7 @@ class Reservation(models.Model):
     now = timezone.now()
 
     booking_id = models.AutoField(primary_key=True)
-    email = models.ForeignKey(CustomUser, related_name='email_reservations', on_delete=models.CASCADE)
-    username = models.ForeignKey(CustomUser, related_name='username_reservations',on_delete=models.CASCADE)
+    email = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     table_number = models.CharField(
         max_length=20,
         choices=TABLE_NUMBERS,
@@ -68,4 +67,4 @@ class Reservation(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Reservation #{self.booking_id} - Email {self.customuser.email} - Username {self.customuser.username} Table No {self.table_number} - Date {self.date} - From {self.start_time} - Till {self.end_time} - Active? {self.active_booking}"
+        return f"Reservation #{self.booking_id} - Email {self.customuser.email} - Table No {self.table_number} - Date {self.date} - From {self.start_time} - Till {self.end_time} - Active? {self.active_booking}"

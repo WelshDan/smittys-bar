@@ -38,4 +38,8 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 
 Happy coding!
 
+Custom User Model
 [Customising Django User Model](https://testdriven.io/blog/django-custom-user-model/)
+
+Switching Username to Email
+[Changing the username in login to use email](https://www.youtube.com/watch?v=hN0xbn4sENw)
