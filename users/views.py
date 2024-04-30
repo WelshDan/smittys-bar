@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 
 from .forms import RegisterForm
-from django.contrib.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError
 
 
 def login_user(request):
@@ -46,6 +46,14 @@ def signup_user(request):
         form = RegisterForm()
         
     return render(request, 'signup.html', {'form':form})
+
+
+def get_booktable(request):
+    return render(request, 'booktable.html')
+
+
+def get_base(request):
+    return render(request, 'base.html')
 
 
 def get_index(request):

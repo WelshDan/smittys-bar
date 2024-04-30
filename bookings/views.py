@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import UpdateView, DeleteView
+from django.contrib.auth.decorators import login_required
 
 from .models import Reservation
 from .forms import TableBookingForm
@@ -41,6 +42,15 @@ def delete_reservation(request, booking_id):
         booking = Reservation.objects.get(pk=booking_id)
         booking.delete()
         return redirect('booktable')
+
+
+@login_required
+def get_bookings(request):
+        if request.user.is_superuser:
+                bookings = Reservation.objects.all()
+        else:
+                bookings = Reservation.objects.filter(email=request.users.email).filter(active_booking=True)
+        return render(request, 'booktable.html', {'bookings': bookings})
 
 
 def get_base(request):

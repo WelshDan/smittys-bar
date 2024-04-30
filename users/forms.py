@@ -1,11 +1,10 @@
 from django import forms
 from django.forms import ModelForm
-from django.contrib.auth.models import CustomUser
-from .models import Customers
+from .models import CustomUser
 
 
 class RegisterForm(ModelForm):
 
     class Meta:
-        model = Customers
+        model = CustomUser
         fields = ['email', 'password']
