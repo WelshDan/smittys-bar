@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
+from django.views.generic.edit import UpdateView, DeleteView
 
 from .models import Reservation
 from .forms import TableBookingForm
@@ -33,7 +34,7 @@ def edit_reservation(request, booking_id):
                 if form.is_valid():
                         form.save()
                         return redirect('booktable')
-        return render(request, 'edit_reservation.html', {'form':form, 'booking' booking, 'bookings':user_bookings})
+        return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
 
 
 def delete_reservation(request, booking_id):
@@ -47,7 +48,7 @@ def get_index(request):
 
 
 def get_signup(request):
-        return render (request, 'account_signup.html')
+        return render(request, 'account_signup.html')
 
 
 def get_login(request):
