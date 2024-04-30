@@ -43,6 +43,10 @@ def delete_reservation(request, booking_id):
         return redirect('booktable')
 
 
+def get_base(request):
+        return render(request, 'base.html')
+
+
 def get_index(request):
         return render(request, 'index.html')
 

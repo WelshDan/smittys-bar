@@ -2,6 +2,7 @@ from django import forms
 from bookings.models import Reservation
 from users.models import CustomUser
 from .widgets import  DatePickerInput, TimePickerInput
+from django.core.exceptions import ValidationError
 
 
 class TableBookingForm(forms.ModelForm):
