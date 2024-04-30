@@ -29,6 +29,25 @@ def logout_user(request):
     return redirect('index')
 
 
+def signup_user(request):
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            if CustomUser.objects.filter(email=email).exists():
+                raise ValidationError("This email address is already registered, please try another.")
+            else:
+                form.save()
+                password = form.cleaned_data['password']
+                user = authenticate(request, email=email, password=password)
+                login(request, user)
+                return redirect('index')
+    else:
+        form = RegisterForm()
+        
+    return render(request, 'signup.html', {'form':form})
+
+
 def get_index(request):
     return render(request, 'index.html')
 
@@ -39,15 +58,3 @@ def get_signup(request):
 
 def get_login(request):
     return render(request, 'login.html')
-
-
-def logout_user(request):
-    pass
-
-
-def login_user(request):
-    pass
-
-
-def signup_user(request):
-    pass
