@@ -40,6 +40,7 @@ Happy coding!
 
 Custom User Model
 [Customising Django User Model](https://testdriven.io/blog/django-custom-user-model/)
+[Customising Django User Model - Very Academy](https://www.youtube.com/watch?v=Ae7nc1EGv-A&t=1502s)
 
 Switching Username to Email
 [Changing the username in login to use email](https://www.youtube.com/watch?v=hN0xbn4sENw)

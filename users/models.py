@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 
@@ -11,7 +12,7 @@ class CustomUserManager(BaseUserManager):
         other_fields.setdefault("is_active", False)
 
         if not email:
-            raise ValueError("You must provide an email address")
+            raise ValueError("You must provide a valid email address")
 
         email = self.normalize_email(email)
         user = self.model(email=email, **other_fields)
@@ -37,6 +38,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     user_id = models.AutoField(primary_key=True)
     email = models.EmailField(max_length=100, unique=True)
+    start_date = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 

@@ -63,6 +63,7 @@ MIDDLEWARE = [
 SITE_ID = 1
 
 LOGIN_URL = '/login'
+
 AUTH_USER_MODEL = 'users.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
