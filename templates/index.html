@@ -1,0 +1,741 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>Welcome to <span>Smitty's</span></h1>
+                {% if user.is_authenticated %}
+                <h2>Book a table!</h2>
+                <div class="btns">
+                    <a href="{% url 'booktable' %}" class="btn-login animated fadeInUp scrollto">Book a Table</a>
+                    <a href="{% url 'account_logout' %}" class="btn-signup animated fadeInUp scrollto">Log Out</a>
+                </div>
+                {% else %}
+                <h2>Log in or Sign up to book a table!</h2>
+                <div class="btns">
+                    <a href="{% url 'account_login' %}" class="btn-login animated fadeInUp scrollto">Log In</a>
+                    <a href="{% url 'account_signup' %}" class="btn-signup animated fadeInUp scrollto">Sign Up</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+
+    <!-- ======= How to Book Section ======= -->
+    <section id="howtobook" class="howtobook">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="howtobook-img">
+                        <a href="{% url 'booktable' %}">
+                            <img src="{% static 'img/floorplan.jpg' %}" alt="floor plan of restaurant">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                    <h3>How to book a table</h3>
+                    <p class="fst-italic">
+                        You have to be logged in to book a table. This makes handling your booking so
+                        much easier. If you have signed up before then click on the Log In and then
+                        sign up<br>
+                        <br>
+                        <strong>The four stages to booking a table once logged in</strong>
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-check-circle"></i> Click on book a table</li>
+                        <li><i class="bi bi-check-circle"></i> Choose your desired table from the dropdown menu</li>
+                        <li><i class="bi bi-check-circle"></i> Select a free date and time
+                        <li><i class="bi bi-check-circle"></i> Click confirm to book
+                        </li>
+                    </ul>
+                    <p>
+                        Once you have confirmed your booking then an email will be sent to the address submited when
+                        you sign up<br>
+                        When you log in, you can change email address, mobile number and also see what bookings you
+                        have that are currently open.<br>You can then either change your booking or even opt to cancel
+                        if you can't make it. Please cancel at the latest two hours before your start booking time.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End How to Book Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Which room</h2>
+                <p>Which of these rooms is for you?</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <div class="box" data-aos="zoom-in" data-aos-delay="100">
+                        <span>01</span>
+                        <h4>Dining Room</h4>
+                        <p>Book a table in our dining room to fully enjoy our delicious food
+                            away from the bussle of the bar</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="box" data-aos="zoom-in" data-aos-delay="200">
+                        <span>02</span>
+                        <h4>Sports Room</h4>
+                        <p>Want to see that important match? We got you! Book a table here
+                            and cheer with friends</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="box" data-aos="zoom-in" data-aos-delay="300">
+                        <span>03</span>
+                        <h4>Main Bar</h4>
+                        <p>If you like live music, stand-up comedy, quizzes or a drink where it's
+                            lively, this is for you</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Why Us Section -->
+
+    <!-- ======= Menu Section ======= -->
+    <section id="menu" class="menu">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Food</h2>
+                <p></p>
+            </div>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-3">
+                    <ul class="nav nav-tabs flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Hamburgers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Fish & Chips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Meat of the week</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Healthy Options</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Traditional Swedish</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab-6">Side dishes & extras</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-9 mt-4 mt-lg-0">
+                    <div class="tab-content">
+                        <div class="tab-pane active show" id="tab-1">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>The bar standard - The Hamburger.</h3>
+                                    <p class="fst-italic">Pick your hamburger then your sides.</p>
+                                    <p>Choose from a meat or vegan patty, a Chicken Burger, a Halloumi Burger or a
+                                        Portabello Mushroom Burger.
+                                        Sides include chips, mash potato, corn and mixed vegetables.
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{% static 'img/food-and-drink/hamburger.jpg' %}" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-2">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>Classic battered cod with chips</h3>
+                                    <p class="fst-italic">England's most famous meal cooked in-house.</p>
+                                    <p>A healthy-sized piece of cod battered and served with the standard
+                                        accompaniment
+                                        of chips, sauce and mushy peas - or boiled farm peas if desired.
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{% static 'img/food-and-drink/fish-and-chips.jpg' %}" alt=""
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-3">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>Meat of the week</h3>
+                                    <p class="fst-italic">Every week there is a new selection of meat on offer.</p>
+                                    <p>Check our boards to see what is on offer. Previous meats have included steak,
+                                        belly pork,
+                                        and duck. During the Thanksgiving and Christmas periods, you will be able to
+                                        order turkey.
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{% static 'img/food-and-drink/meats.jpg' %}" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-4">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>Choose from one of our healthy options</h3>
+                                    <p class="fst-italic">Want a meal for under 1000 calories, pick one of these.
+                                    </p>
+                                    <p>We have Chicken with crushed harissa chickpeas, Egg-fried noodles and
+                                        beansprouts,
+                                        Ginger Chicken udon Noodles, and Spaghetti Bolognese.
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{% static 'img/food-and-drink/healthy.jpg' %}" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-5">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>Choose from a few of the Swedish favourites</h3>
+                                    <p class="fst-italic">If you prefer a classic Swedish then here you go.</p>
+                                    <p>Never tried meatballs? Now is your chance!
+                                        Do you like pea soup with pancakes to follow? We've got it here.
+                                    </p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{% static 'img/food-and-drink/meatballs.jpg' %}" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-6">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3>Side dishes for smaller meals or extras</h3>
+                                    <p class="fst-italic">A good list if you want a small snack or add more to your
+                                        order</p>
+                                    <p>We have lots of potential smaller meals including soup, cheese on toast,
+                                        nachos & cheese, ors
+                                        chicken wings. Extras include a range of vegetables and sauces.</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="{% static 'img/food-and-drink/soup.jpg' %}" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End Menu Section -->
+
+    <!-- ======= Drinks Section ======= -->
+    <section id="drinks" class="drinks section-bg">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Drinks
+                </h2>
+                <p>Check Our Selection</p>
+            </div>
+            <div class="row aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <ul id="drinks-flters">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-beers" class>Beers & Ales</li>
+                        <li data-filter=".filter-ciders" class>Ciders</li>
+                        <li data-filter=".filter-wines" class>Wines</li>
+                        <li data-filter=".filter-spirits" class>Spirits</li>
+                        <li data-filter=".filter-soft" class>Soft Drinks</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row drinks-container aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-6 drinks-item filter-beers">
+                    <img src="{% static 'img/food-and-drink/guinness.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">Guinness</a>
+                        <span>89kr pint (49 half pint)</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Ireland's Number 1 export - The creamy goodness
+                    </div>
+                </div>
+                <div class="col-lg-6 drinks-item filter-beers">
+                    <img src="{% static 'img/food-and-drink/ipa.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">Ales, IPAs & Stouts</a><span>89kr pint (49 half pint)</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Brains Bitter, Brains SA, Sleepy Bulldog Pale Ale, Guinness
+                    </div>
+                </div>
+
+                <div class="col-lg-6 drinks-item filter-ciders">
+                    <img src="{% static 'img/food-and-drink/cider.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">Ciders</a><span>79kr pint (44kr half pint</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Strongbow, Somersby, Thatcher's Gold
+                    </div>
+                </div>
+
+                <div class="col-lg-6 drinks-item filter-beers">
+                    <img src="{% static 'img/food-and-drink/lager.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">Lager</a><span>79kr pint (44kr half pint</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Pilser Urquell, Budvar, Bittberger
+                    </div>
+                </div>
+
+                <div class="col-lg-6 drinks-item filter-wines">
+                    <img src="{% static 'img/food-and-drink/redwine.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">Red Wine</a><span>99kr per serving</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Pinot Noir, Merlot, Zinfandel, Rioja
+                    </div>
+                </div>
+
+                <div class="col-lg-6 drinks-item filter-wines">
+                    <img src="{% static 'img/food-and-drink/whitewine.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">White Wine</a><span>99kr per serving</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Riesling, Pinot Gris, Chardonnay, Savignon Blanc
+                    </div>
+                </div>
+
+                <div class="col-lg-6 drinks-item filter-wines">
+                    <img src="{% static 'img/food-and-drink/sparklingwine.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">Sparkling Wine</a><span>119kr per serving</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Champagne, Cava, Prosecco
+                    </div>
+                </div>
+
+                <div class="col-lg-6 drinks-item filter-spirits">
+                    <img src="{% static 'img/food-and-drink/whisky.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">Whiskey</a><span>29kr-59kr per cl serving</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Tullamore Dew, Jameson, Famous Grouse
+                    </div>
+                </div>
+
+                <div class="col-lg-6 drinks-item filter-spirits">
+                    <img src="{% static 'img/food-and-drink/spirits.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">Other spirits</a><span>29kr-59kr per cl serving</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Vodka, Gin, Bacardi and many more
+                    </div>
+                </div>
+
+                <div class="col-lg-6 drinks-item filter-soft">
+                    <img src="{% static 'img/food-and-drink/oj.jpg' %}" class="drinks-img" alt="">
+                    <div class="drinks-content">
+                        <a href="#">Soft Drinks</a><span>39kr per serving</span>
+                    </div>
+                    <div class="drinks-ingredients">
+                        Coca Cola, Orange Juice, Mixers
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Drinks Section -->
+
+    <!-- ======= Events Section ======= -->
+    <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Live Events</h2>
+                <p>Come and enjoy our live events in the Main Bar</p>
+            </div>
+
+            <div class="events-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="row event-item">
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/pubquiz.jpg' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                <h3>Pub Quiz</h3>
+                                <div class="price">
+                                    <p><span>Thursday nights</span></p>
+                                </div>
+                                <p class="fst-italic">
+                                    Join The Three Amigos as they host their quiz every Thursday night - 20.00
+                                    start.
+                                </p>
+                                <ul>
+                                    <li><i class="bi bi-check-circled"></i> Don't forget to book your table!</li>
+                                    <li><i class="bi bi-check-circled"></i> The quiz is free.</li>
+                                    <li><i class="bi bi-check-circled"></i> A variety of topics and difficulty
+                                        level.</li>
+                                </ul>
+                                <p>
+                                    The Three Amigos have hosted the quiz since the bar opened in 2005. The running
+                                    time is normally between 20.00-22.30.
+                                    Everything needed is provided by the quizmasters, so just turn up and enjoy
+                                    yourself.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="row event-item">
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/live-music.jpg' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                <h3>Live Music</h3>
+                                <div class="price">
+                                    <p><span>Wednesdays, Fridays and Saturdays</span></p>
+                                </div>
+                                <p class="fst-italic">
+                                    We have a range of live artists performing. Some to dance to and some to sit and
+                                    enjoy.
+                                </p>
+                                <ul>
+                                    <li><i class="bi bi-check-circled"></i> Wednesday night is troubadour night.
+                                        More low-key but still lots of fun!</li>
+                                    <li><i class="bi bi-check-circled"></i> Friday nights are reserved for live
+                                        music to kick the week off with some energy.</li>
+                                    <li><i class="bi bi-check-circled"></i> Saturday nights are for the headline
+                                        artist of the week.</li>
+                                </ul>
+                                <p>
+                                    Live acts normally play between 20:00 and 23:00. Be aware of your table position
+                                    when booking. Some tables are closer to the stage which can be noisy! That can
+                                    be preferrable
+                                    for some people though.<br>The headline act changes from week to week. It could
+                                    be a new
+                                    young act, a cover band, a soul
+                                    singer or, occasionally a well-known act. Previous live acts included Zara
+                                    Larsson, Tom Jones, Jules Holland and the Manic Street Preachers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="row event-item">
+                            <div class="col-lg-6">
+                                <img src="{% static 'img/standup.jpg' %}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                <h3>Stand Up</h3>
+                                <div class="price">
+                                    <p><span>Monday nights</span></p>
+                                </div>
+                                <p class="fst-italic">
+                                    "I Don't Like Mondays" sang the Boomtown Rats in 1979, well, Mondays don't have
+                                    to
+                                    be so bad! If you like a laugh then come along!
+                                </p>
+                                <ul>
+                                    <li><i class="bi bi-check-circled"></i> Acts normally start at 20.00.</li>
+                                    <li><i class="bi bi-check-circled"></i> Bring a sense of humour!</li>
+                                    <li><i class="bi bi-check-circled"></i> Jokes are more fun with friends.</li>
+                                </ul>
+                                <p>
+                                    We have hosted Stand Up comedians since 2012 and we think it is a great start to
+                                    the week.
+                                    We are always open to booking new comedians to give them a chance. We have even
+                                    booked some
+                                    famous from around the world. Some huge successes were Sean Locke, Özz Nujen and
+                                    Ali Wong.
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End Events Section -->
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>Gallery</h2>
+                <p>Some photos from Our Restaurant</p>
+            </div>
+        </div>
+
+        <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row g-0">
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item">
+                        <a href="{% static 'img/gallery/gallery-1.jpg' %}" class="gallery-lightbox"
+                            data-gall="gallery-item">
+                            <img src="{% static 'img/gallery/gallery-1.jpg' %}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item">
+                        <a href="{% static 'img/gallery/gallery-2.jpg' %}" class="gallery-lightbox"
+                            data-gall="gallery-item">
+                            <img src="{% static 'img/gallery/gallery-2.jpg' %}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item">
+                        <a href="{% static 'img/gallery/gallery-3.jpg' %}" class="gallery-lightbox"
+                            data-gall="gallery-item">
+                            <img src="{% static 'img/gallery/gallery-3.jpg' %}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item">
+                        <a href="{% static 'img/gallery/gallery-4.jpg' %}" class="gallery-lightbox"
+                            data-gall="gallery-item">
+                            <img src="{% static 'img/gallery/gallery-4.jpg' %}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item">
+                        <a href="{% static 'img/gallery/gallery-5.jpg' %}" class="gallery-lightbox"
+                            data-gall="gallery-item">
+                            <img src="{% static 'img/gallery/gallery-5.jpg' %}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item">
+                        <a href="{% static 'img/gallery/gallery-6.jpg' %}" class="gallery-lightbox"
+                            data-gall="gallery-item">
+                            <img src="{% static 'img/gallery/gallery-6.jpg' %}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item">
+                        <a href="{% static 'img/gallery/gallery-7.jpg' %}" class="gallery-lightbox"
+                            data-gall="gallery-item">
+                            <img src="{% static 'img/gallery/gallery-7.jpg' %}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item">
+                        <a href="{% static 'img/gallery/gallery-8.jpg' %}" class="gallery-lightbox"
+                            data-gall="gallery-item">
+                            <img src="{% static 'img/gallery/gallery-8.jpg' %}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Gallery Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Contact</h2>
+                <p>Contact Us</p>
+            </div>
+        </div>
+        <div class="container" data-aos="fade-up">
+
+            <div class="row mt-5">
+
+                <div class="col-lg-4">
+                    <div class="info">
+                        <div class="address">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Location:</h4>
+                            <p>Hagens backe 1d, 178 38 Ekerö</p>
+                            <p><a href="https://maps.app.goo.gl/ApntUucnFzroZwqRA" target="_blank">Here is our
+                                    location</a></p>
+                        </div>
+
+                        <div class="open-hours">
+                            <i class="bi bi-clock"></i>
+                            <h4>Open Hours:</h4>
+                            <p>
+                                Monday-Wednesday:<br>
+                                11:00 AM - 23:00 PM
+                            </p><br>
+                            <p>
+                                Thursday-Sunday:<br>
+                                11:00 AM - 01:00 PM
+                            </p>
+                        </div>
+
+                        <div class="email">
+                            <i class="bi bi-envelope"></i>
+                            <h4>Email:</h4>
+                            <p>testemailsmittysbar@gmail.com</p>
+                        </div>
+
+                        <div class="phone">
+                            <i class="bi bi-phone"></i>
+                            <h4>Call:</h4>
+                            <p>+46 811 223344</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-8 mt-5 mt-lg-0">
+
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                                    required>
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                                required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" name="message" rows="8" placeholder="Message"
+                                required></textarea>
+                        </div>
+                        <div class="my-3">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        </div>
+                        <div class="text-center"><button type="submit">Send Message</button></div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <!-- ======= Footer - links are not to be removed! ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-info">
+                            <h3>Restaurantly</h3>
+                            <p>
+                                A108 Adam Street <br>
+                                NY 535022, USA<br><br>
+                                <strong>Phone:</strong> +1 5589 55488 55<br>
+                                <strong>Email:</strong> info@example.com<br>
+                            </p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                        <h4>Our Newsletter</h4>
+                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <form action="" method="post">
+                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Footer -->
+</main>
+<!-- End #main -->
+
+{% endblock %}

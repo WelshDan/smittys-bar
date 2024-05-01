@@ -1,0 +1,153 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>{% block head_title %}Smitty's Bar and Restaurant{% endblock %}</title>
+    <meta content="Stockholm's No.1 Bar & Restaurant" name="description" />
+    <meta content="Stockholm, bar, nightlife, events, music, restaurant, booking" name="keywords" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="{% static 'img/favicon32.png' %}" />
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}" />
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+
+<body>
+    <!-- ======= Top Bar ======= -->
+    <div id="topbar" class="d-flex align-items-center fixed-top">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-phone d-flex align-items-center"><span>+46 811 223344</span></i>
+                <i class="bi bi-clock d-flex align-items-center ms-4"><span> Mon-Wed: 11.00 - 23.00 | Thu-Sun: 11.00 -
+                        01.00</span></i>
+                {% if request.user.is_authenticated %}
+                <i class="bi bi-person-badge d-flex align-items-center ms-4"><span>Logged in as
+                        {{user.username}}</span></i>
+                {% else %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-cente">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+            <h1 class="logo me-auto me-lg-0">
+                <a href="{% url 'index' %}" class="scrollto">Smitty's</a>
+            </h1>
+        </div>
+        <!-- .navbar -->
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li>
+                    <a class="nav-link scrollto active" href="{% url 'index' %}#hero">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="{% url 'index' %}#howtobook">How to Book</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="{% url 'index' %}#menu">Menu</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="{% url 'index' %}#drinks">Drinks</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="{% url 'index' %}#events">Events</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="{% url 'index' %}#gallery">Gallery</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="{% url 'index' %}#contact">Contact</a>
+                </li>
+                <!-- Log In or Log Out button -->
+
+                {% if request.user.is_authenticated %}
+                <li>
+                    <a href="{% url 'booktable' %}" class="btn-login animated fadeInUp scrollto">Book a Table</a>
+                </li>
+                <li>
+                    <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
+                        class="btn-logout animated fadeInUp scrollto" aria-current="page"
+                        href="{% url 'account_logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
+                        class="btn-signup animated fadeInUp scrollto" aria-current="page"
+                        href="{% url 'account_signup' %}">Sign Up</a>
+                </li>
+                <li>
+                    <a class="nav-link {% if request.path == login_url %}active{% endif %}"
+                        class="btn-login animated fadeInUp scrollto" aria-current="page"
+                        href="{% url 'account_login' %}">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ======= Error Messages ======= -->
+
+        <div class="messages-container">
+            <div class="row">
+                <div class="col-m8- offset-md-2">
+                    {% for message in messages %}
+                    <div class"alert alert-warning alert-dismissible fade show" id="msg" role="alert">
+                        {{ message | safe }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+
+    </main>
+
+    <!-- ======= Main Footer  ======= -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright
+                <strong><span>Restaurantly</span><span>& Dan Roberts</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Font Awesome JS File -->
+    <script src="https://kit.fontawesome.com/d186afbc3c.js" crossorigin="anonymous"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
