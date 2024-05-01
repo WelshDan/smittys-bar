@@ -23,6 +23,7 @@ from users import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.get_index, name='index'),
+    path('accounts/', include('allauth.urls')),
     path('base/', views.get_base, name='base'),
     path('booktable/', bookings_views.reserve_table, name='booktable'),
     path('bookings/', include('bookings.urls')),

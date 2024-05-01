@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block content %}
+
+<!-- ======= Check if logged in ======= -->
+{% if user.is_authenticated %}
+
+<section id="login" class="login">
+    <div class="container section" data-aos="fade-up">
+        <div class="section-title">
+            <h2>You are logged in</h2>
+            <p>Click to book a table</p>
+            <div class="btns">
+                <a href="{% url 'booktable' %}" class="btn-login animated fadeInUp scrollto">Book a Table</a>
+            </div>
+        </div>
+        <div class="section-title">
+            <h2>{% trans "Log out" %}</h2>
+            <p>Click here to log out</p>
+        </div>
+    </div>
+    <div class="btns">
+        <a href="{% url 'account_logout' %}" class="btn-logout animated fadeInUp scrollto">Log Out</a>
+    </div>
+</section>
+{% else %}
+
+<!-- ======= Log in Section ======= -->
+<section id="login" class="login">
+    <div class="container section" data-aos="fade-up">
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <div class="section-title">
+                    <h2>Log in</h2>
+                    <p>Enter your email address and password</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <form action="{% url 'account_login' %}" method="POST" class="login-form" data-aos="fade-up" data-aos-delay="100">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 form-group mt-3 mt-md-0">
+                            <input type="email" name="email" class="form-control" placeholder="Email" data-rule="minlen:4"
+                                data-msg="Please enter your email address" required />
+                            <div class="validate"></div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 form-group mt-3 mt-md-0">
+                            <input type="password" class="form-control" name="password" placeholder="Password"
+                                data-rule="password" data-msg="Please enter your password" required />
+                            <div class="validate"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 form-group bt-submit animated fadeInUp scrollto text-center">
+                            <button type="submit">Log in</button>
+                        </div>
+                        <div class="section-title">
+                            <div class="signup-title">
+                                <h2>Sign up</h2>
+                                <p>Click here to register</p>
+                            </div>
+                            <div class="btns">
+                                <a href="{% url 'account_signup' %}" class="btn-signup animated fadeInUp scrollto">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
