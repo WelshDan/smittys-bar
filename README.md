@@ -204,8 +204,7 @@ The aim here was that this should have been accessed through the "Log In" button
 #### 3.2 Log in details
 
 Superuser:
-username: admin
-email: admin@email.com
+email: admin@gmail.com
 Password: admin
 
 Test User:
@@ -491,3 +490,14 @@ Custom User Model
 
 Switching Username to Email
 [Changing the username in login to use email](https://www.youtube.com/watch?v=hN0xbn4sENw)
+
+Gallery
+Pictures from [Pixabay](www.pixabay.com)
+- Duy Nod
+- Stocksnap
+- RondellMelling
+- kaicho20
+- 4634656
+- OurWhiskyFoundation
+- pascalkoenig
+- Pexels

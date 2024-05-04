@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-                '8000-welshdan-smittysbar-7rhe328gb7a.ws-eu110.gitpod.io',
+                '8000-welshdan-smittysbar-7rhe328gb7a.ws-eu111.gitpod.io',
                 '.herokuapp.com'
                 ]
 
@@ -70,6 +70,7 @@ LOGIN_URL = '/login'
 LOGOUT_URL = '/logout'
 
 AUTH_USER_MODEL = 'users.CustomUser'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'email'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -154,6 +155,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-welshdan-smittysbar-7rhe328gb7a.ws-eu110.gitpod.io',
+    'https://8000-welshdan-smittysbar-7rhe328gb7a.ws-eu111.gitpod.io',
     'https://smittys-bar-e7b5536cbae9.herokuapp.com'
 ]

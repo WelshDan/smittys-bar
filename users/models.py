@@ -35,7 +35,7 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-
+    username = None
     user_id = models.AutoField(primary_key=True)
     email = models.EmailField(max_length=100, unique=True)
     start_date = models.DateTimeField(default=timezone.now)

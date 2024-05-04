@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 
 from .forms import RegisterForm
@@ -21,7 +21,7 @@ def login_user(request):
             return redirect('login')
 
     else:
-        return render(requesr, 'login.html', {})
+        return render(request, 'login.html', {})
 
 
 def logout_user(request):

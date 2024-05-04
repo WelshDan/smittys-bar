@@ -125,7 +125,29 @@
                 <h2>Food</h2>
                 <p></p>
             </div>
-
+            <div class="row">
+                <div class="col-4">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list"
+                            href="#list-home" role="tab" aria-controls="list-home">Home</a>
+                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list"
+                            href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
+                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list"
+                            href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
+                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list"
+                            href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...
+                        </div>
+                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+                    </div>
+                </div>
+            </div>
             <div class="row" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-lg-3">
                     <ul class="nav nav-tabs flex-column">
@@ -484,7 +506,7 @@
                                 </p>
                             </div>
                         </div>
-                    </div><!-- End testimonial item -->
+                    </div>
 
                 </div>
                 <div class="swiper-pagination"></div>
@@ -510,78 +532,31 @@
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{% static 'img/gallery/gallery-1.jpg' %}" class="gallery-lightbox"
+                        <a href="{% static 'img/images/gallery-section/gallery1.jpg' %}" class="gallery-lightbox"
                             data-gall="gallery-item">
-                            <img src="{% static 'img/gallery/gallery-1.jpg' %}" alt="" class="img-fluid">
+                            <img src="{% static 'img/images/gallery-section/gallery1.jpg' %}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{% static 'img/gallery/gallery-2.jpg' %}" class="gallery-lightbox"
+                        <a href="{% static 'img/images/gallery-section/gallery2.jpg' %}" class="gallery-lightbox"
                             data-gall="gallery-item">
-                            <img src="{% static 'img/gallery/gallery-2.jpg' %}" alt="" class="img-fluid">
+                            <img src="{% static 'img/images/gallery-section/gallery2.jpg' %}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{% static 'img/gallery/gallery-3.jpg' %}" class="gallery-lightbox"
+                        <a href="{% static 'img/images/gallery-section/gallery3.jpg' %}" class="gallery-lightbox"
                             data-gall="gallery-item">
-                            <img src="{% static 'img/gallery/gallery-3.jpg' %}" alt="" class="img-fluid">
+                            <img src="{% static 'img/images/gallery-section/gallery3.jpg' %}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="{% static 'img/gallery/gallery-4.jpg' %}" class="gallery-lightbox"
-                            data-gall="gallery-item">
-                            <img src="{% static 'img/gallery/gallery-4.jpg' %}" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="{% static 'img/gallery/gallery-5.jpg' %}" class="gallery-lightbox"
-                            data-gall="gallery-item">
-                            <img src="{% static 'img/gallery/gallery-5.jpg' %}" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="{% static 'img/gallery/gallery-6.jpg' %}" class="gallery-lightbox"
-                            data-gall="gallery-item">
-                            <img src="{% static 'img/gallery/gallery-6.jpg' %}" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="{% static 'img/gallery/gallery-7.jpg' %}" class="gallery-lightbox"
-                            data-gall="gallery-item">
-                            <img src="{% static 'img/gallery/gallery-7.jpg' %}" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="{% static 'img/gallery/gallery-8.jpg' %}" class="gallery-lightbox"
-                            data-gall="gallery-item">
-                            <img src="{% static 'img/gallery/gallery-8.jpg' %}" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
             </div>
-
         </div>
     </section>
     <!-- End Gallery Section -->
