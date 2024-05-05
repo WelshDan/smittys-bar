@@ -3,8 +3,8 @@ from django.forms import ModelForm
 from .models import CustomUser
 
 
-class RegisterForm(ModelForm):
+class CustomUserForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ['email', 'password']
+        fields = ['id', 'email', 'password', 'start_date', 'is_active', 'is_superuser']

@@ -204,8 +204,9 @@ The aim here was that this should have been accessed through the "Log In" button
 #### 3.2 Log in details
 
 Superuser:
-email: admin@gmail.com
-Password: admin
+email: dan@gmail.com
+Password: dan
+
 
 Test User:
 tom@gmail.com / Tom:2024

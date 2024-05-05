@@ -6,19 +6,19 @@ from .models import CustomUser
 
 class UserAdminConfig(UserAdmin):
     model = CustomUser
-    search_fields = ('email', 'user_id',)
-    list_filter = ('email', 'user_id', 'start_date', 'is_active', 'is_superuser',)
-    ordering = ('-user_id',)
-    list_display = ('email', 'user_id', 'start_date', 'is_active', 'is_superuser',)
+    search_fields = ('email', 'id',)
+    list_filter = ('email', 'id', 'start_date', 'is_active', 'is_superuser',)
+    ordering = ('-id',)
+    list_display = ('email', 'id', 'start_date', 'is_active', 'is_superuser',)
 
     fieldsets = (
-        (None, {'fields': ('email', 'user_id', 'start_date',)}),
+        (None, {'fields': ('email', 'id', 'start_date',)}),
         ('Permissions', {'fields': ('is_superuser', 'is_active',)}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password', 'user_id', 'start_date', 'is_active', 'is_superuser',)}
+            'fields': ('email', 'password', 'id', 'start_date', 'is_active', 'is_superuser',)}
         ),
     )
 

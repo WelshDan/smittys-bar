@@ -11,7 +11,7 @@ def reserve_table(request):
         submitted = False
         active_booking = False
         form = TableBookingForm()
-        user_bookings = Reservation.objects.filter(email=request.user.email).filter(active_booking=True)
+        user_bookings = Reservation.objects.filter(user=request.CustomUser.id).filter(active_booking=True)
 
         if request.method == "POST":
                 form = TableBookingForm(request.POST, user=request.user)
