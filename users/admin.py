@@ -1,11 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from django.forms import TextInput, Textarea
+from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser
 
-
-class UserAdminConfig(UserAdmin):
+class CustomUserAdmin(UserAdmin):
+    add_form = CustomUserCreationForm
+    form = CustomUserChangeForm
     model = CustomUser
+    readonly_fields = ['id']
     search_fields = ('email', 'id',)
     list_filter = ('email', 'id', 'start_date', 'is_active', 'is_superuser',)
     ordering = ('-id',)
@@ -18,8 +20,8 @@ class UserAdminConfig(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password', 'id', 'start_date', 'is_active', 'is_superuser',)}
+            'fields': ('email', 'password', 'start_date', 'is_active', 'is_superuser',)}
         ),
     )
 
-admin.site.register(CustomUser, UserAdminConfig)
+admin.site.register(CustomUser, CustomUserAdmin)

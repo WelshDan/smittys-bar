@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-
+from users.models import CustomUser
 from .models import Reservation
 from .forms import TableBookingForm
 
@@ -11,7 +11,7 @@ def reserve_table(request):
         submitted = False
         active_booking = False
         form = TableBookingForm()
-        user_bookings = Reservation.objects.filter(user=request.user.email).filter(active_booking=True)
+        user_bookings = Reservation.objects.filter(user=request.email).filter(active_booking=True)
 
         if request.method == "POST":
                 form = TableBookingForm(request.POST, user=request.user)

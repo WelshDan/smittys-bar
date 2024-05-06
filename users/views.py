@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import CustomUserForm
+from .forms import CustomUserCreationForm
 from django.core.exceptions import ValidationError
 
 
@@ -29,20 +29,23 @@ def logout_user(request):
 
 
 def signup_user(request):
-    if request.method == "POST":
-        form = CustomUserForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            if CustomUser.objects.filter(email=email).exists():
-                raise ValidationError("This email address is already registered, please try another.")
-            else:
-                form.save()
+    if request.user.is_anonymous:
+        if request.method == "POST":
+            form = CustomUserCreationForm(request.POST)
+            if form.is_valid():
+                email = form.cleaned_data['email']
                 password = form.cleaned_data['password']
-                user = authenticate(request, email=email, password=password)
-                login(request, user)
-                return redirect('index')
+                if CustomUser.objects.filter(email=email).exists():
+                    raise ValidationError("This email address is already registered, please try another.")
+                else:
+                    form.save()
+                    user = authenticate(request, email=email, password=password)
+                    login(request, user)
+                    return redirect('index')
     else:
-        form = RegisterForm()
+        return redirect('index')
+    
+    form = RegisterForm()
         
     return render(request, 'signup.html', {'form':form})
 
