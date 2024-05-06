@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import CustomUserForm
@@ -67,5 +67,5 @@ def get_login(request):
     return render(request, 'login.html')
 
 
-def error_404(request,exception):
+def error_404(request, exception):
     return render(request, '404.html')

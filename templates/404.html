@@ -29,9 +29,12 @@
         <div class="row">
             <div class="col-md-8 mt-3 offset-md-2">
                 <div class="section-title">
-                    <h2>404</h2>
-                    <p>Something went wrong!</p>
-                    <p>Click home or choose another option</p>
+                    <h2>Error!</h2>
+                    <p>404 - Something went wrong!</p>
+                    <p>Click below to return to the homepage</p>
+                </div>
+                <div class="btns">
+                    <a href="{% url 'index' %}" class="btn-signup animated fadeInUp scrollto">Return to homepage</a>
                 </div>
             </div>
         </div>
@@ -40,15 +43,14 @@
                 <div class="section-title">
                     <div class="signup-title">
                         <h2>Choose an option</h2>
-                        <p>Click below to either signup or log in</p>
+                        <p>Click below to either Sign Up or Log In</p>
                     </div>
                     <div class="btns">
                         <a href="{% url 'account_signup' %}" class="btn-signup animated fadeInUp scrollto">Sign
                             Up</a>
                     </div>
                     <div class="btns">
-                        <a href="{% url 'login' %}" class="btn-signup animated fadeInUp scrollto">Sign
-                            Up</a>
+                        <a href="{% url 'login' %}" class="btn-login animated fadeInUp scrollto">Log In</a>
                     </div>
                 </div>
             </div>
