@@ -32,6 +32,8 @@ urlpatterns = [
     path('users/', include('users.urls')),
 ]
 
+handler404 = 'users.views.error_404a'
+
 # Admin titles and headings"
 admin.site.index_title = "Smitty's Bar & Restaurant"
 admin.site.site_header = "Smitty's Bar & Restaurant Admin"

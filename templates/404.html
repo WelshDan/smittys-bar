@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block content %}
+<!-- ======= 404 Section ======= -->
+<!-- ======= Check if logged in ======= -->
+{% if user.is_authenticated %}
+
+<section id="login" class="login">
+    <div class="container section" data-aos="fade-up">
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <div class="section-title">
+                    <h2>404</h2>
+                    <p>Something went wrong!</p>
+                    <p>Click home or choose another option</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<!-- ======= If not logged in ======= -->
+<section id="login" class="login">
+    <div class="container section" data-aos="fade-up">
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <div class="section-title">
+                    <h2>404</h2>
+                    <p>Something went wrong!</p>
+                    <p>Click home or choose another option</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <div class="section-title">
+                    <div class="signup-title">
+                        <h2>Choose an option</h2>
+                        <p>Click below to either signup or log in</p>
+                    </div>
+                    <div class="btns">
+                        <a href="{% url 'account_signup' %}" class="btn-signup animated fadeInUp scrollto">Sign
+                            Up</a>
+                    </div>
+                    <div class="btns">
+                        <a href="{% url 'login' %}" class="btn-signup animated fadeInUp scrollto">Sign
+                            Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

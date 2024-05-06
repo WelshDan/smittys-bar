@@ -17,13 +17,14 @@ def login_user(request):
         else:
             messages.error(request, ("Your email or password was incorrect, please try again"))
             return redirect('login')
-            
+
     else:
         return render(request, 'login.html', {})
 
 
 def logout_user(request):
     logout(request)
+    messages.success(request, ("You are now logged out"))
     return redirect('index')
 
 
@@ -64,3 +65,7 @@ def get_signup(request):
 
 def get_login(request):
     return render(request, 'login.html')
+
+
+def error_404(request,exception):
+    return render(request, '404.html')

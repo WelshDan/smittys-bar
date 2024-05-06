@@ -7,4 +7,4 @@ class CustomUserForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ['id', 'email', 'password', 'start_date', 'is_active', 'is_superuser']
+        fields = ['email', 'password', 'start_date', 'is_active', 'is_superuser']
