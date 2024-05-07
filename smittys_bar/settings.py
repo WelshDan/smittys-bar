@@ -135,11 +135,16 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LANGUAGE_CODE = 'en-us'
 
+TIME_ZONE = 'Europe/Stockholm'
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
+
+DATETIME_FORMAT: '%d %b %Y'
+TIME_FORMAT: '%H:%M'
 
 
 # Static files (CSS, JavaScript, Images)

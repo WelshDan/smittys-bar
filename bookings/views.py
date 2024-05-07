@@ -8,34 +8,45 @@ from .forms import TableBookingForm
 
 
 def reserve_table(request):
-        submitted = False
-        active_booking = False
-        form = TableBookingForm()
-        user_bookings = Reservation.objects.filter(email=request.user.email).filter(active_booking=True)
+    submitted = False
+    active_booking = False
+    form = TableBookingForm()
 
+    try:
+        user_customer = Customer.objects.get(email=request.user.email)
+        user_bookings = Reservation.objects.filter(email=user_customer).filter(active_booking=True)
+    except Customer.DoesNotExist:
+        user_customer = None
+        user_bookings = None
+
+    if user_customer:
         if request.method == "POST":
-                form = TableBookingForm(request.POST, user=request.user)
-                if form.is_valid():
-                        form.save()
-                        return HttpResponseRedirect('/booktable')
+            form = TableBookingForm(request.POST, user=request.user)
+            if form.is_valid():
+                form.instance.email = user_customer
+                form.save()
+                return HttpResponseRedirect('/booktable')
         else:
-                form = TableBookingForm(user=request.user)
-                if 'submitted' in request.GET:
-                        submitted = True
-                        active_booking = True
+            form = TableBookingForm(user=request.user)
+            if 'submitted' in request.GET:
+                submitted = True
+                active_booking = True
         return render(request, 'booktable.html', {'form':form, 'submitted':submitted, 'bookings':user_bookings})
+    else:
+            return HttpResponseRedirect('/signup')
 
 
 def edit_reservation(request, booking_id):
-        user_bookings = Reservation.objects.filter(email=request.user.email).filter(active_booking=True)
-        booking = Resvervation.object.get(pk=booking_id)
-        form = TableBookingForm(user=request.user, instance=booking)
-        if request.method == "POST":
-                form = TableBookingForm(request.POST, user=request.user, instance=booking)
-                if form.is_valid():
-                        form.save()
-                        return redirect('booktable')
-        return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
+    user_customer = Customer.objects.get(email=request.user.email)
+    user_bookings = Reservation.objects.filter(email=user_customer).filter(active_booking=True)
+    booking = Reservation.objects.get(pk=booking_id)
+    form = TableBookingForm(user=request.user, instance=booking)
+    if request.method == "POST":
+            form = TableBookingForm(request.POST, user=request.user, instance=booking)
+            if form.is_valid():
+                    form.save()
+                    return redirect('booktable')
+    return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
 
 
 def delete_reservation(request, booking_id):

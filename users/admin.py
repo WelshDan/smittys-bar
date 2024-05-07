@@ -23,6 +23,7 @@ class customer(admin.ModelAdmin):
             'fields': ('username', 'email', 'password', 'date_joined', 'is_active', 'is_superuser',)}
         ),
     )
+    
 admin.site.unregister(auth.models.User)
 admin.site.unregister(auth.models.Group)
 admin.site.register(Customer)
