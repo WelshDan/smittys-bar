@@ -19,13 +19,18 @@
           data-aos="fade-up" data-aos-delay="100">
           {% csrf_token %}
           <div class="col-lg-4 col-md-4 form-group mt-3 mt-md-0">
+            <input type="username" name="username" class="form-control" placeholder="Username" data-rule="minlen:4"
+              data-msg="Please enter a username" required />
+            <div class="validate"></div>
+          </div>
+          <div class="col-lg-4 col-md-4 form-group mt-3 mt-md-0">
             <input type="email" name="email" class="form-control" placeholder="Email" data-rule="minlen:4"
-              data-msg="Please enter your email address" required />
+              data-msg="Please enter an email address" required />
             <div class="validate"></div>
           </div>
           <div class="col-lg-4 col-md-4 form-group mt-3 mt-md-0">
             <input type="password" class="form-control" name="password" placeholder="Password" data-rule="password"
-              data-msg="Please enter your password" required />
+              data-msg="Please enter a password" required />
             <div class="validate"></div>
           </div>
           <div class="col-lg-4 col-md-4 form-group mt-3 mt-md-0">

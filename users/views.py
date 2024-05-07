@@ -7,15 +7,15 @@ from django.core.exceptions import ValidationError
 
 def login_user(request):
     if request.method == "POST":
-        email = request.POST["email"]
+        username = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(request, email=email, password=password)
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             messages.success(request, ("You are now logged in"))
             return redirect('index')
         else:
-            messages.error(request, ("Your email or password was incorrect, please try again"))
+            messages.error(request, ("Your username or password was incorrect, please try again"))
             return redirect('login')
 
     else:
@@ -33,13 +33,13 @@ def signup_user(request):
         if request.method == "POST":
             form = RegisterForm(request.POST)
             if form.is_valid():
-                email = form.cleaned_data['email']
+                username = form.cleaned_data['username']
                 password = form.cleaned_data['password']
-                if Customer.objects.filter(email=email).exists():
-                    raise ValidationError("This email address is already registered, please try another.")
+                if Customer.objects.filter(username=username).exists():
+                    raise ValidationError("This username is already registered, please try another.")
                 else:
                     form.save()
-                    user = authenticate(request, email=email, password=password)
+                    user = authenticate(request, username=email, password=password)
                     login(request, user)
                     return redirect('index')
     else:
