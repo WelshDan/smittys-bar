@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as messages
 import os
 import dj_database_url
 if os.path.isfile('env.py'):
@@ -69,8 +70,6 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/login'
 LOGOUT_REDIRECT_URL = '/logout'
 
-AUTH_USER_MODEL = 'users.CustomUser'
-ACCOUNT_USER_MODEL_USERNAME_FIELD = 'email'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -158,3 +157,11 @@ CSRF_TRUSTED_ORIGINS = [
     'https://8000-welshdan-smittysbar-7rhe328gb7a.ws-eu111.gitpod.io',
     'https://smittys-bar-e7b5536cbae9.herokuapp.com'
 ]
+
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+}

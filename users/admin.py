@@ -1,27 +1,25 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser
+from .models import Customer
 
-class CustomUserAdmin(UserAdmin):
-    add_form = CustomUserCreationForm
-    form = CustomUserChangeForm
-    model = CustomUser
+
+class customer(admin.ModelAdmin):
+
+    model = Customer
     readonly_fields = ['id']
     search_fields = ('email', 'id',)
-    list_filter = ('email', 'id', 'start_date', 'is_active', 'is_superuser',)
+    list_filter = ('email', 'id', 'date_joined', 'is_active', 'is_superuser',)
     ordering = ('-id',)
-    list_display = ('email', 'id', 'start_date', 'is_active', 'is_superuser',)
+    list_display = ('email', 'id', 'date_joined', 'is_active', 'is_superuser',)
 
     fieldsets = (
-        (None, {'fields': ('email', 'id', 'start_date',)}),
+        (None, {'fields': ('email', 'id', 'date_joined',)}),
         ('Permissions', {'fields': ('is_superuser', 'is_active',)}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password', 'start_date', 'is_active', 'is_superuser',)}
+            'fields': ('email', 'password', 'date_joined', 'is_active', 'is_superuser',)}
         ),
     )
 
-admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Customer, customer)

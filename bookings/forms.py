@@ -1,6 +1,6 @@
 from django import forms
 from bookings.models import Reservation
-from users.models import CustomUser
+from users.models import Customer
 from .widgets import  DatePickerInput, TimePickerInput
 from django.core.exceptions import ValidationError
 

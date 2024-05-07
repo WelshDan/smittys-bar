@@ -1,19 +1,14 @@
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import AbstractUser, PermissionsMixin
-from .managers import CustomUserManager
+from django.contrib.auth.models import User
 
 
-class CustomUser(AbstractUser, PermissionsMixin):
+class Customer(models.Model):
     email = models.EmailField(max_length=100, unique=True)
-    start_date = models.DateTimeField(default=timezone.now)
+    password = models.CharField(max_length=128, default="password")
+    date_joined = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-
-    objects = CustomUserManager()
-
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    is_superuser = models.BooleanField(default=False)
 
     def __str__(self):
         return self.email

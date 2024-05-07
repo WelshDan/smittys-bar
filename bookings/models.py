@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import CustomUser
+from users.models import Customer
 from django.utils import timezone
 
 
@@ -55,7 +55,7 @@ class Reservation(models.Model):
     now = timezone.now()
 
     booking_id = models.AutoField(primary_key=True)
-    email = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    email = models.ForeignKey(Customer, on_delete=models.CASCADE)
     table_number = models.CharField(
         max_length=20,
         choices=TABLE_NUMBERS,
