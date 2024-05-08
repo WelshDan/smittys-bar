@@ -31,12 +31,21 @@ class TableBookingForm(forms.ModelForm):
         date = cleaned_data.get('date')
         start_time = cleaned_data.get('start_time')
         end_time = cleaned_data.get('end_time')
-        try:
-            active_reservation = Reservations.objects.filter(table_number=table_number, date=date, start_time=start_time, end_time=end_time, active_booking=True).exists()
+
+        instance = self.instance
+
+        check_bookings = Reservation.objects.filter(
+            table_number=table_number,
+            date=date,
+            start_time__lt=end_time,
+            end_time__gt=start_time,
+            active_booking=True
+        )
+        
+        if instance and instance.pk:
+            check_bookings = check_bookings.exclude(pk=instance.pk)
+
+        if check_bookings.exists():
             raise ValidationError("Double booked! The table is booked for that time on that date")
-        except Reservation.DoesNotExist:
-            pass
-        except Exception as e:
-            raise ValidationError("There was an error in the process. Please try again")
 
         return cleaned_data

@@ -42,10 +42,11 @@ def edit_reservation(request, booking_id):
     booking = Reservation.objects.get(pk=booking_id)
     form = TableBookingForm(user=request.user, instance=booking)
     if request.method == "POST":
-            form = TableBookingForm(request.POST, user=request.user, instance=booking)
-            if form.is_valid():
-                    form.save()
-                    return redirect('booktable')
+        form = TableBookingForm(request.POST, user=request.user, instance=booking)
+        if form.is_valid():
+                form.instance.email = user_customer
+                form.save()
+                return redirect('booktable')
     return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
 
 
@@ -60,7 +61,7 @@ def get_bookings(request):
         if request.user.is_superuser:
                 bookings = Reservation.objects.all()
         else:
-                bookings = Reservation.objects.filter(email=request.users.email).filter(active_booking=True)
+                bookings = Reservation.objects.filter(email=user_customer).filter(active_booking=True)
         return render(request, 'booktable.html', {'bookings': bookings})
 
 
