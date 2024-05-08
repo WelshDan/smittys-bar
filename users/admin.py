@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.models import User, Group
 from django.contrib import auth
-from .models import Customer
+from .models import User
 
 
-class customer(admin.ModelAdmin):
+class user(admin.ModelAdmin):
 
-    model = Customer
+    model = User
     readonly_fields = ['id']
     search_fields = ('username', 'email', 'id',)
     list_filter = ('username', 'email', 'id', 'date_joined', 'is_active', 'is_superuser',)
@@ -24,6 +24,4 @@ class customer(admin.ModelAdmin):
         ),
     )
     
-admin.site.unregister(auth.models.User)
 admin.site.unregister(auth.models.Group)
-admin.site.register(Customer)

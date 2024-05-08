@@ -3,9 +3,9 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-class Customer(models.Model):
-    username = models.CharField(max_length=128)
-    email = models.EmailField(max_length=100, unique=True)
+class User(models.Model):
+    username = models.CharField(max_length=128, blank=False)
+    email = models.EmailField(max_length=100, unique=True, blank=False)
     password = models.CharField(max_length=128, default="password")
     date_joined = models.DateTimeField(default=timezone.now)
     is_active = models.BooleanField(default=True)

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from users.models import Customer
+from users.models import User
 from .models import Reservation
 from .forms import TableBookingForm
 
@@ -13,17 +13,17 @@ def reserve_table(request):
     form = TableBookingForm()
 
     try:
-        user_customer = Customer.objects.get(email=request.user.email)
-        user_bookings = Reservation.objects.filter(email=user_customer).filter(active_booking=True)
-    except Customer.DoesNotExist:
-        user_customer = None
+        current_user = User.objects.get(email=request.user.email)
+        user_bookings = Reservation.objects.filter(email=current_user).filter(active_booking=True)
+    except User.DoesNotExist:
+        current_user = None
         user_bookings = None
 
-    if user_customer:
+    if current_user:
         if request.method == "POST":
             form = TableBookingForm(request.POST, user=request.user)
             if form.is_valid():
-                form.instance.email = user_customer
+                form.instance.email = current_user
                 form.save()
                 return HttpResponseRedirect('/booktable')
         else:
@@ -37,14 +37,14 @@ def reserve_table(request):
 
 
 def edit_reservation(request, booking_id):
-    user_customer = Customer.objects.get(email=request.user.email)
-    user_bookings = Reservation.objects.filter(email=user_customer).filter(active_booking=True)
+    current_user = User.objects.get(email=request.user.email)
+    user_bookings = Reservation.objects.filter(email=current_user).filter(active_booking=True)
     booking = Reservation.objects.get(pk=booking_id)
     form = TableBookingForm(user=request.user, instance=booking)
     if request.method == "POST":
         form = TableBookingForm(request.POST, user=request.user, instance=booking)
         if form.is_valid():
-                form.instance.email = user_customer
+                form.instance.email = current_user
                 form.save()
                 return redirect('booktable')
     return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
@@ -61,7 +61,7 @@ def get_bookings(request):
         if request.user.is_superuser:
                 bookings = Reservation.objects.all()
         else:
-                bookings = Reservation.objects.filter(email=user_customer).filter(active_booking=True)
+                bookings = Reservation.objects.filter(email=current_user).filter(active_booking=True)
         return render(request, 'booktable.html', {'bookings': bookings})
 
 

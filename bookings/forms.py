@@ -1,6 +1,6 @@
 from django import forms
 from bookings.models import Reservation
-from users.models import Customer
+from users.models import User
 from .widgets import  DatePickerInput, TimePickerInput
 from django.core.exceptions import ValidationError
 
@@ -20,9 +20,9 @@ class TableBookingForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         if user and user.is_authenticated:
             try:
-                user_customer = Customer.objects.get(email=user.email)
-                self.fields['email'].initial = user_customer
-            except Customer.DoesNotExist:
+                current_user = User.objects.get(email=user.email)
+                self.fields['email'].initial = current_user
+            except User.DoesNotExist:
                 pass
 
     def clean(self):
