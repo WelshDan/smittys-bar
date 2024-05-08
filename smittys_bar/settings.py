@@ -63,16 +63,23 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
 ]
 
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/login'
-LOGOUT_REDIRECT_URL = '/logout'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
 ]
 
 ROOT_URLCONF = 'smittys_bar.urls'
@@ -163,6 +170,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://smittys-bar-e7b5536cbae9.herokuapp.com'
 ]
 
+# Messages
+
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
         messages.INFO: 'alert-info',
@@ -170,3 +179,5 @@ MESSAGE_TAGS = {
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
 }
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"

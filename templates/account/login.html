@@ -44,31 +44,18 @@
             <div class="col-md-8 mt-3 offset-md-2">
                 <form action="{% url 'account_login' %}" method="POST" class="login-form" data-aos="fade-up" data-aos-delay="100">
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 form-group mt-3 mt-md-0">
-                            <input type="username" name="username" class="form-control" placeholder="Username" data-rule="minlen:4"
-                                data-msg="Please enter your username" required />
-                            <div class="validate"></div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 form-group mt-3 mt-md-0">
-                            <input type="password" class="form-control" name="password" placeholder="Password"
-                                data-rule="password" data-msg="Please enter your password" required />
-                            <div class="validate"></div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 form-group bt-submit animated fadeInUp scrollto text-center">
-                            <button type="submit">Log in</button>
-                        </div>
-                        <div class="section-title">
-                            <div class="signup-title">
-                                <h2>Sign up</h2>
-                                <p>Click here to register</p>
-                            </div>
-                            <div class="btns">
-                                <a href="{% url 'account_signup' %}" class="btn-signup animated fadeInUp scrollto">Sign Up</a>
-                            </div>
-                        </div>
-                    </div>
+                    {{ form.as_p }}
+                    <button class="btn btn-signup" type="submit">{% trans "Log In" %}</button>
                 </form>
+                <div class="section-title">
+                    <div class="signup-title">
+                        <h2>Sign up</h2>
+                        <p>Click here to register</p>
+                    </div>
+                    <div class="btns">
+                        <a href="{% url 'account_signup' %}" class="btn-signup animated fadeInUp scrollto">Sign Up</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
