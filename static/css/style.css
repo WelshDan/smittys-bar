@@ -1087,6 +1087,9 @@ section {
 }
 
 /*----- Booktable, Logout, Signup & Login Pages - General -----*/
+.floorplan,
+.event_information,
+.reserved,
 .booktable,
 .logout,
 .signup,
@@ -1390,84 +1393,29 @@ section {
 }
 
 /*----- Book a Table Page -----*/
-.section-title {
-    padding-top: 60px;
+
+.booktable {
+    padding-top: 120px;
 }
 
-.table {
+.booktable .form-group p {
+    color: #fff;
+}
+
+.booktable .event-table {
     color: #fff;
     border-bottom: none;
 }
 
-.t-head {
+.booktable .t-head {
     font-weight: bold;
 }
 
-.table tr:last-child th,
-.table tr:last-child td {
+.booktable .table tr:last-child th,
+.booktable .table tr:last-child td {
     border: none;
 }
 
-.booktable:before {
-    content: "";
-    background: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
-.booktable .floorplan-img {
-    position: relative;
-    transition: .5s;
-}
-
-.booktable .floorplan-img img {
-    max-width: 100%;
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-}
-
-.booktable .floorplan-img::before {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    width: 60px;
-    height: 60px;
-    z-index: 1;
-    content: '';
-    border-left: 5px solid #cda45e;
-    border-top: 5px solid #cda45e;
-    transition: .5s;
-}
-
-.booktable .floorplan-img::after {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    width: 60px;
-    height: 60px;
-    z-index: 2;
-    content: '';
-    border-right: 5px solid #cda45e;
-    border-bottom: 5px solid #cda45e;
-    transition: .5s;
-}
-
-.booktable .floorplan-img:hover {
-    transform: scale(1.03);
-}
-
-.booktable .floorplan-img:hover::before {
-    left: 10px;
-    top: 10px;
-}
-
-.booktable .floorplan-img:hover::after {
-    right: 10px;
-    bottom: 10px;
-}
 
 /*----- Booktable Edit and Delete buttons -----*/
 

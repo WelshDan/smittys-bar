@@ -11,27 +11,21 @@ from .forms import TableBookingForm
 def reserve_table(request):
     submitted = False
     active_booking = False
+    current_user = User.objects.get(username=request.user.username)
+    user_bookings = Reservation.objects.filter(username=current_user).filter(active_booking=True)
     form = TableBookingForm()
-
-    try:
-        current_user = User.objects.get(username=request.user.username)
-        user_bookings = Reservation.objects.filter(username=current_user).filter(active_booking=True)
-    except User.DoesNotExist:
-        current_user = None
-        user_bookings = None
-
-        if request.method == "POST":
-            form = TableBookingForm(request.POST, user=request.user)
-            if form.is_valid():
-                form.instance.email = current_user
-                form.save()
-                return HttpResponseRedirect('/booktable')
-        else:
-            form = TableBookingForm(user=request.user)
-            if 'submitted' in request.GET:
-                submitted = True
-                active_booking = True
-        return render(request, 'booktable.html', {'form':form, 'submitted':submitted, 'bookings':user_bookings})
+    if request.method == "POST":
+        form = TableBookingForm(request.POST, user=request.user)
+        if form.is_valid():
+            form.instance.email = current_user
+            form.save()
+            return HttpResponseRedirect('/booktable')
+    else:
+        form = TableBookingForm(user=request.user)
+        if 'submitted' in request.GET:
+            submitted = True
+            active_booking = True
+    return render(request, 'booktable.html', {'form':form, 'submitted':submitted, 'bookings':user_bookings})
 
 
 @login_required
