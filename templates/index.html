@@ -32,7 +32,7 @@
 <main id="main">
 
     <!-- ======= How to Book Section ======= -->
-    <section id="howtobook" class="howtobook">
+    <section id="howtobook" class="howtobook section">
         <div class="container" data-aos="fade-up">
 
             <div class="row">
@@ -41,7 +41,7 @@
                         <img src="{% static 'img/images/floorplan.jpg' %}" alt="floor plan of restaurant">
                     </div>
                 </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 howtobook-item">
                     <h3>How to book a table</h3>
                     <p class="fst-italic">
                         You have to be logged in to book a table. This makes handling your booking so
@@ -72,7 +72,7 @@
     <!-- End How to Book Section -->
 
     <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
+    <section id="why-us" class="why-us section-bg">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -84,7 +84,6 @@
 
                 <div class="col-lg-4">
                     <div class="box" data-aos="zoom-in" data-aos-delay="100">
-                        <span>01</span>
                         <h4>Dining Room</h4>
                         <p>Book a table in our dining room to fully enjoy our delicious food
                             away from the bussle of the bar</p>
@@ -93,7 +92,6 @@
 
                 <div class="col-lg-4 mt-4 mt-lg-0">
                     <div class="box" data-aos="zoom-in" data-aos-delay="200">
-                        <span>02</span>
                         <h4>Sports Room</h4>
                         <p>Want to see that important match? We got you! Book a table here
                             and cheer with friends</p>
@@ -102,7 +100,6 @@
 
                 <div class="col-lg-4 mt-4 mt-lg-0">
                     <div class="box" data-aos="zoom-in" data-aos-delay="300">
-                        <span>03</span>
                         <h4>Main Bar</h4>
                         <p>If you like live music, stand-up comedy, quizzes or a drink where it's
                             lively, this is for you</p>
@@ -116,7 +113,7 @@
     <!-- End Why Us Section -->
 
     <!-- ======= Menu Section ======= -->
-    <section id="menu" class="menu">
+    <section id="menu" class="menu section-bg-b">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -492,52 +489,52 @@
     <!-- End Events Section -->
 
     <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery">
+    <section id="gallery" class="gallery section-bg">
 
         <div class="container" data-aos="fade-up">
             <div class="section-title">
                 <h2>Gallery</h2>
-                <p>Some photos from Our Restaurant</p>
+                <p>Some photos from our Restaurant</p>
             </div>
         </div>
-
-        <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="row g-0">
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="{% static 'img/images/gallery-section/gallery1.jpg' %}" class="gallery-lightbox"
-                            data-gall="gallery-item">
-                            <img src="{% static 'img/images/gallery-section/gallery1.jpg' %}" alt="" class="img-fluid">
-                        </a>
+        <div class="container col-lg" data-aos="fade-up" data-aos-delay="100">
+            <div id="galleryCarousel" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'img/images/gallery-section/bar-pic.jpg' %}" class="d-block w-100" alt="Nightime in the bar with many customers">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/images/gallery-section/cheers.jpg' %}" class="d-block w-100" alt="Glasses raised to cheers">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'img/images/gallery-section/alcohol-shelf.jpg' %}" class="d-block w-100" alt="Rows of shelves with bottles of drinks on them">
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="{% static 'img/images/gallery-section/gallery2.jpg' %}" class="gallery-lightbox"
-                            data-gall="gallery-item">
-                            <img src="{% static 'img/images/gallery-section/gallery2.jpg' %}" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="gallery-item">
-                        <a href="{% static 'img/images/gallery-section/gallery3.jpg' %}" class="gallery-lightbox"
-                            data-gall="gallery-item">
-                            <img src="{% static 'img/images/gallery-section/gallery3.jpg' %}" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </section>
     <!-- End Gallery Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section-bg-b">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -557,6 +554,12 @@
                             <p>Hagens backe 1d, 178 38 Ekerö</p>
                             <p><a href="https://maps.app.goo.gl/ApntUucnFzroZwqRA" target="_blank">Here is our
                                     location</a></p>
+                        </div>
+                        <div class="ratio ratio-16x9">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1006.4171040306406!2d17.80487935224385!3d59.26886245840444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f7480280f434b%3A0x145625970ec0bd85!2sHagens%20backe%201D%2C%20178%2038%20Eker%C3%B6!5e0!3m2!1sen!2sse!4v1715209278122!5m2!1sen!2sse"
+                                    title="map-location" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
 
                         <div class="open-hours">
@@ -583,44 +586,9 @@
                             <h4>Call:</h4>
                             <p>+46 811 223344</p>
                         </div>
-
                     </div>
-
                 </div>
-
-                <div class="col-lg-8 mt-5 mt-lg-0">
-
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                    required>
-                            </div>
-                            <div class="col-md-6 form-group mt-3 mt-md-0">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" required>
-                            </div>
-                        </div>
-                        <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                                required>
-                        </div>
-                        <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="8" placeholder="Message"
-                                required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
-                    </form>
-
-                </div>
-
             </div>
-
         </div>
     </section>
     <!-- End Contact Section -->

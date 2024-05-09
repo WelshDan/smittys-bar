@@ -15,7 +15,7 @@
     </div>
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2">
-        <form action="{% url 'account_signup' %}" method="POST" role="form" class="signup-form aos-init aos animate"
+        <form action="{% url 'signup' %}" method="POST" id="signup-form" role="form" class="signup-form aos-init aos animate"
           data-aos="fade-up" data-aos-delay="100">
           {% csrf_token %}
           {{ form.as_p }}
@@ -28,7 +28,7 @@
               <p>Already signed up?</p>
             </div>
             <div class="btns">
-              <a href="{% url 'account_login' %}" class="btn-login animated fadeInUp scrollto">Log in</a>
+              <a href="{% url 'login' %}" class="btn-login animated fadeInUp scrollto">Log in</a>
             </div>
           </div>
         </form>

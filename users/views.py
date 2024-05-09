@@ -31,7 +31,7 @@ def signup_user(request):
                     raise ValidationError("This username is already registered, please try another.")
                 else:
                     form.save()
-                    user = authenticate(request, username=email, password=password)
+                    user = authenticate(request, username=username, password=password)
                     login(request, user)
                     messages.success(request, ("You are now signed up!"))
                     return redirect('index')
@@ -39,7 +39,7 @@ def signup_user(request):
         form = RegisterForm()
         messages.error(request, "Something went wrong, please try again.")
         
-    return render(request, 'signup.html', {'form':form})
+    return render(request, 'signup.html', {'form': form})
 
 
 def logout_user(request):
