@@ -44,7 +44,7 @@ def edit_reservation(request, booking_id):
     if request.method == "POST":
         form = TableBookingForm(request.POST, user=request.user, instance=booking)
         if form.is_valid():
-                form.instance.email = current_user
+                form.instance.email = user_user
                 form.save()
                 return redirect('booktable')
     return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
@@ -58,10 +58,11 @@ def delete_reservation(request, booking_id):
 
 @login_required
 def get_bookings(request):
+        current_user = User.objects.get(email=request.user.email)
         if request.user.is_superuser:
                 bookings = Reservation.objects.all()
         else:
-                bookings = Reservation.objects.filter(email=current_user).filter(active_booking=True)
+                bookings = Reservation.objects.filter(email=user_user).filter(active_booking=True)
         return render(request, 'booktable.html', {'bookings': bookings})
 
 

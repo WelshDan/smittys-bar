@@ -13,8 +13,8 @@
                 {% if user.is_authenticated %}
                 <h2>Book a table!</h2>
                 <div class="btns">
-                    <a href="{% url 'booktable' %}" class="btn-login animated fadeInUp scrollto">Book a Table</a>
-                    <a href="{% url 'account_logout' %}" class="btn-signup animated fadeInUp scrollto">Log Out</a>
+                    <a href="{% url 'booktable' %}" class="btn-booktable animated fadeInUp scrollto">Book a Table</a>
+                    <a href="{% url 'account_logout' %}" class="btn-logout animated fadeInUp scrollto">Log Out</a>
                 </div>
                 {% else %}
                 <h2>Log in or Sign up to book a table!</h2>
@@ -253,24 +253,12 @@
                 </h2>
                 <p>Check Our Selection</p>
             </div>
-            <div class="row aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-12 d-flex justify-content-center">
-                    <ul id="drinks-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-beers" class>Beers & Ales</li>
-                        <li data-filter=".filter-ciders" class>Ciders</li>
-                        <li data-filter=".filter-wines" class>Wines</li>
-                        <li data-filter=".filter-spirits" class>Spirits</li>
-                        <li data-filter=".filter-soft" class>Soft Drinks</li>
-                    </ul>
-                </div>
-            </div>
             <div class="row drinks-container aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                 <div class="col-lg-6 drinks-item filter-beers">
                     <img src="{% static 'img/images/drinks-section/guinness.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">Guinness</a>
-                        <span>89kr pint (49 half pint)</span>
+                        <h6>Guinness</h6>
+                        <span>89kr pint (49kr half pint)</span>
                     </div>
                     <div class="drinks-ingredients">
                         Ireland's Number 1 export - The creamy goodness
@@ -279,17 +267,17 @@
                 <div class="col-lg-6 drinks-item filter-beers">
                     <img src="{% static 'img/images/drinks-section/ipa.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">Ales, IPAs & Stouts</a><span>89kr pint (49 half pint)</span>
+                        <h6>Ales, IPAs & Stouts</h6><span>89kr pint (49kr half pint)</span>
                     </div>
                     <div class="drinks-ingredients">
-                        Brains Bitter, Brains SA, Sleepy Bulldog Pale Ale, Guinness
+                        Brains Bitter, Brains SA, Sleepy Bulldog Pale Ale
                     </div>
                 </div>
 
                 <div class="col-lg-6 drinks-item filter-ciders">
                     <img src="{% static 'img/images/drinks-section/cider.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">Ciders</a><span>79kr pint (44kr half pint</span>
+                        <h6>Ciders</h6><span>79kr pint (44kr half pint)</span>
                     </div>
                     <div class="drinks-ingredients">
                         Strongbow, Somersby, Thatcher's Gold
@@ -299,7 +287,7 @@
                 <div class="col-lg-6 drinks-item filter-beers">
                     <img src="{% static 'img/images/drinks-section/lager.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">Lager</a><span>79kr pint (44kr half pint</span>
+                        <h6>Lager</h6><span>79kr pint (44kr half pint)</span>
                     </div>
                     <div class="drinks-ingredients">
                         Pilser Urquell, Budvar, Bittberger
@@ -309,7 +297,7 @@
                 <div class="col-lg-6 drinks-item filter-wines">
                     <img src="{% static 'img/images/drinks-section/redwine.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">Red Wine</a><span>99kr per serving</span>
+                        <h6>Red Wine</h6><span>99kr per serving</span>
                     </div>
                     <div class="drinks-ingredients">
                         Pinot Noir, Merlot, Zinfandel, Rioja
@@ -319,7 +307,7 @@
                 <div class="col-lg-6 drinks-item filter-wines">
                     <img src="{% static 'img/images/drinks-section/whitewine.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">White Wine</a><span>99kr per serving</span>
+                        <h6>White Wine</h6><span>99kr per serving</span>
                     </div>
                     <div class="drinks-ingredients">
                         Riesling, Pinot Gris, Chardonnay, Savignon Blanc
@@ -329,7 +317,7 @@
                 <div class="col-lg-6 drinks-item filter-wines">
                     <img src="{% static 'img/images/drinks-section/sparklingwine.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">Sparkling Wine</a><span>119kr per serving</span>
+                        <h6>Sparkling Wine</h6><span>119kr per serving</span>
                     </div>
                     <div class="drinks-ingredients">
                         Champagne, Cava, Prosecco
@@ -339,7 +327,7 @@
                 <div class="col-lg-6 drinks-item filter-spirits">
                     <img src="{% static 'img/images/drinks-section/whisky.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">Whiskey</a><span>29kr-59kr per cl serving</span>
+                        <h6>Whiskey</h6><span>29kr-59kr per cl serving</span>
                     </div>
                     <div class="drinks-ingredients">
                         Tullamore Dew, Jameson, Famous Grouse
@@ -349,7 +337,7 @@
                 <div class="col-lg-6 drinks-item filter-spirits">
                     <img src="{% static 'img/images/drinks-section/spirits.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">Other spirits</a><span>29kr-59kr per cl serving</span>
+                        <h6>Other spirits</h6><span>29kr-59kr per cl serving</span>
                     </div>
                     <div class="drinks-ingredients">
                         Vodka, Gin, Bacardi and many more
@@ -359,7 +347,7 @@
                 <div class="col-lg-6 drinks-item filter-soft">
                     <img src="{% static 'img/images/drinks-section/oj.jpg' %}" class="drinks-img" alt="">
                     <div class="drinks-content">
-                        <a href="#">Soft Drinks</a><span>39kr per serving</span>
+                        <h6>Soft Drinks</h6><span>39kr per serving</span>
                     </div>
                     <div class="drinks-ingredients">
                         Coca Cola, Orange Juice, Mixers
@@ -544,50 +532,53 @@
         </div>
         <div class="container" data-aos="fade-up">
 
-            <div class="row mt-5">
+            <div class="row mr-5">
 
-                <div class="col-lg-4">
-                    <div class="info">
-                        <div class="address">
-                            <i class="bi bi-geo-alt"></i>
-                            <h4>Location:</h4>
-                            <p>Hagens backe 1d, 178 38 Ekerö</p>
-                            <p><a href="https://maps.app.goo.gl/ApntUucnFzroZwqRA" target="_blank">Here is our
-                                    location</a></p>
-                        </div>
-                        <div class="ratio ratio-16x9">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1006.4171040306406!2d17.80487935224385!3d59.26886245840444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f7480280f434b%3A0x145625970ec0bd85!2sHagens%20backe%201D%2C%20178%2038%20Eker%C3%B6!5e0!3m2!1sen!2sse!4v1715209278122!5m2!1sen!2sse"
-                                    title="map-location" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-
-                        <div class="open-hours">
-                            <i class="bi bi-clock"></i>
-                            <h4>Open Hours:</h4>
-                            <p>
-                                Monday-Wednesday:<br>
-                                11:00 AM - 23:00 PM
-                            </p><br>
-                            <p>
-                                Thursday-Sunday:<br>
-                                11:00 AM - 01:00 PM
-                            </p>
-                        </div>
-
-                        <div class="email">
-                            <i class="bi bi-envelope"></i>
-                            <h4>Email:</h4>
-                            <p>testemailsmittysbar@gmail.com</p>
-                        </div>
-
-                        <div class="phone">
-                            <i class="bi bi-phone"></i>
-                            <h4>Call:</h4>
-                            <p>+46 811 223344</p>
+                    <div class="col-lg-6">
+                        <div class="info">
+                            <div class="address">
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>Location:</h4>
+                                <p>Hagens backe 1d, 178 38 Ekerö</p>
+                                <p><a href="https://maps.app.goo.gl/ApntUucnFzroZwqRA" target="_blank">Here is our location</a>
+                                </p>
+                            </div>
+                            <div class="ratio ratio-16x9">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1006.4171040306406!2d17.80487935224385!3d59.26886245840444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f7480280f434b%3A0x145625970ec0bd85!2sHagens%20backe%201D%2C%20178%2038%20Eker%C3%B6!5e0!3m2!1sen!2sse!4v1715209278122!5m2!1sen!2sse"
+                                        title="map-location" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-lg-6">
+                        <div class="info">
+                            <div class="open-hours">
+                                <i class="bi bi-clock"></i>
+                                <h4>Open Hours:</h4>
+                                <p>
+                                    Monday-Wednesday:<br>
+                                    11:00 AM - 23:00 PM
+                                </p><br>
+                                <p>
+                                    Thursday-Sunday:<br>
+                                    11:00 AM - 01:00 PM
+                                </p>
+                            </div>
+
+                            <div class="email">
+                                <i class="bi bi-envelope"></i>
+                                <h4>Email:</h4>
+                                <p>testemailsmittysbar@gmail.com</p>
+                            </div>
+
+                            <div class="phone">
+                                <i class="bi bi-phone"></i>
+                                <h4>Call:</h4>
+                                <p>+46 811 223344</p>
+                            </div>
+                        </div>    
+                    </div>
             </div>
         </div>
     </section>

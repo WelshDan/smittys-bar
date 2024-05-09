@@ -2,9 +2,9 @@
 
 Bootstrapped using the Restaurantly website template available from <https://bootstrapmade.com/restaurantly-restaurant-template/>
 
-Edited in the Cross Platform Cloud IDE Codeanywhere <https://app.codeanywhere.com/>
+Edited in the Cross Platform Cloud IDE Gitpod <https://www.gitpod.io/>
 
-![Screenshot](static/img/smittys-logo.jpg "Smitty Logo")
+![Screenshot](static/img/README/smittys-logo.jpg "Smitty Logo")
 
 ---------------
 
@@ -182,10 +182,6 @@ The Gallery:
 Contact Us:
 ![Screenshot](static/img/README/contactus_navbar.jpg "Contact section of the main page")
 
-**Footer section**
-
-Footer:
-![Screenshot](static/img/README/homepage_footer.jpg "Footer section of the main page")
 
 ### Other html pages
 
@@ -200,6 +196,19 @@ This page is accessed through the "Sign Up" button and then the aim was that upo
 The aim here was that this should have been accessed through the "Log In" button and then entering a previously registered email address and password, the user would be logged in(see bugs):
 
 ![Screenshot](static/img/README/log_in_page.jpg "Log in page")
+
+##### Log out page
+
+This is the screen which asks the user if they really do want to log out.
+
+![Screenshot] "Log out page")
+
+##### Booktable page
+
+Here a logged in user can create a new booking or they can also see, edit or delete their active bookings via the get_booking function.
+
+![Screenshot] "Booktable page")
+
 
 #### 3.2 Log in details
 
@@ -324,14 +333,12 @@ Changed to workspace link, then it should be changed to deloyed link address
 **Bugs**
 
 - Message function is created and the code is added to the 'base.html' file but it does not load.
-- Models in booking and user apps are incorrectly titled as Reservations and Users, instead of Reservation and User
 - Lighthouse = page takes a long time to load, code needs to be cleansed
 
 **Missing Parts & Issues**
 
 There are many missing parts to the website:
 
-- (Manual Testing #18) The Contact US form is not connected
 - Due to a template website used for this, the style.css file contains code that is not used or not connected.
 - Wireframes are not
 

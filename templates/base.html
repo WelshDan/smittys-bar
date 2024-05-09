@@ -86,7 +86,9 @@
 
                     {% if request.user.is_authenticated %}
                     <li>
-                        <a href="{% url 'booktable' %}" class="btn-login animated fadeInUp scrollto">Book a Table</a>
+                        <a class="nav-link {% if request.path == booktable_url %}active{% endif %}"
+                            class="btn-booktable animated fadeInUp scrollto" aria-current="page"
+                            href="{% url 'booktable' %}">Book Table</a>
                     </li>
                     <li>
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}"

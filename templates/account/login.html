@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load account socialaccount %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}{% trans "Log In" %}{% endblock %}
 {% block content %}
 
 <!-- ======= Check if logged in ======= -->
@@ -15,7 +15,7 @@
             <h2>You are logged in</h2>
             <p>Click to book a table</p>
             <div class="btns">
-                <a href="{% url 'booktable' %}" class="btn-login animated fadeInUp scrollto">Book a Table</a>
+                <a href="{% url 'booktable' %}" class="btn-booktable animated fadeInUp scrollto">Book a Table</a>
             </div>
         </div>
         <div class="section-title">
@@ -45,7 +45,7 @@
                 <form action="{% url 'account_login' %}" method="POST" class="login-form" data-aos="fade-up" data-aos-delay="100">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button class="btn btn-signup" type="submit">{% trans "Log In" %}</button>
+                    <button class="btn btn-login" type="submit">{% trans "Log In" %}</button>
                 </form>
                 <div class="section-title">
                     <div class="signup-title">

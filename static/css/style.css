@@ -60,7 +60,7 @@ h6 {
     border-bottom: 1px solid rgba(12, 11, 9, 0.6);
     transition: all 0.5s;
     z-index: 999;
-    padding: 15px, 0, 15px, 0;
+    padding: 10px;
     top: 40px;
 }
 
@@ -89,59 +89,7 @@ h6 {
     max-height: 40px;
 }
 
-/*----- Sign Up button -----*/
-.signup-btn {
-    margin: 0 0 0 15px;
-    border: 2px solid #cda45e;
-    color: #fff;
-    border-radius: 50px;
-    padding: 8px 25px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
 
-.signup-btn:hover {
-    background: #cda45e;
-    color: #fff;
-}
-
-@media (max-width: 992px) {
-    .signup-btn {
-        margin: 0 15px 0 0;
-        padding: 8px 20px;
-    }
-}
-
-/*----- Log In button -----*/
-.login-btn {
-    margin: 0 0 0 15px;
-    border: 2px solid #cda45e;
-    color: #fff;
-    border-radius: 50px;
-    padding: 8px 25px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-.login-btn:hover {
-    background: #cda45e;
-    color: #fff;
-}
-
-@media (max-width: 992px) {
-    .login-btn {
-        margin: 0 15px 0 0;
-        padding: 8px 20px;
-    }
-}
 
 /*----- Nav menu -----*/
 /*Desktop Navigation*/
@@ -739,7 +687,7 @@ section {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.drinks .drinks-content a {
+.drinks .drinks-content h6 {
     padding-right: 10px;
     background: #1a1814;
     position: relative;
@@ -749,7 +697,7 @@ section {
     transition: 0.3s;
 }
 
-.drinks .drinks-content a:hover {
+.drinks .drinks-content h6:hover {
     color: #cda45e;
 }
 
@@ -813,7 +761,7 @@ section {
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 20px;
-    color: #fff;
+    color: #cda45e;
 }
 
 .menu .details p {
@@ -975,110 +923,6 @@ section {
     margin-top: 40px;
 }
 
-.contact .php-email-form {
-    width: 100%;
-}
-
-.contact .php-email-form .form-group {
-    padding-bottom: 8px;
-}
-
-.contact .php-email-form .validate {
-    display: none;
-    color: red;
-    margin: 0 0 15px 0;
-    font-weight: 400;
-    font-size: 13px;
-}
-
-.contact .php-email-form .error-message {
-    display: none;
-    color: #fff;
-    background: #ed3c0d;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.contact .php-email-form .sent-message {
-    display: none;
-    color: #fff;
-    background: #18d26e;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-    display: none;
-    text-align: center;
-    padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px -6px 0;
-    border: 3px solid #cda45e;
-    border-top-color: #1a1814;
-    -webkit-animation: animate-loading 1s linear infinite;
-    animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form input,
-.contact .php-email-form textarea {
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 14px;
-    background: #0c0b09;
-    border-color: #625b4b;
-    color: white;
-}
-
-.contact .php-email-form input::-webkit-input-placeholder,
-.contact .php-email-form textarea::-webkit-input-placeholder {
-    color: #a49b89;
-}
-
-.contact .php-email-form input::-moz-placeholder,
-.contact .php-email-form textarea::-moz-placeholder {
-    color: #a49b89;
-}
-
-.contact .php-email-form input::placeholder,
-.contact .php-email-form textarea::placeholder {
-    color: #a49b89;
-}
-
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
-    border-color: #cda45e;
-}
-
-.contact .php-email-form input {
-    height: 44px;
-}
-
-.contact .php-email-form textarea {
-    padding: 10px 12px;
-}
-
-.contact .php-email-form button[type="submit"] {
-    background: #cda45e;
-    border: 0;
-    padding: 10px 35px;
-    color: #fff;
-    transition: 0.4s;
-    border-radius: 50px;
-}
-
-.contact .php-email-form button[type="submit"]:hover {
-    background: #d3af71;
-}
-
 @-webkit-keyframes animate-loading {
     0% {
         transform: rotate(0deg);
@@ -1203,42 +1047,6 @@ section {
     color: #cda45e;
 }
 
-#footer .footer-top .footer-newsletter form {
-    margin-top: 30px;
-    background: #28251f;
-    padding: 6px 10px;
-    position: relative;
-    border-radius: 50px;
-    border: 1px solid #454035;
-}
-
-#footer .footer-top .footer-newsletter form input[type="email"] {
-    border: 0;
-    padding: 4px;
-    width: calc(100% - 110px);
-    background: #28251f;
-    color: white;
-}
-
-#footer .footer-top .footer-newsletter form input[type="submit"] {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    border: 0;
-    background: none;
-    font-size: 16px;
-    padding: 0 20px 2px 20px;
-    background: #cda45e;
-    color: #fff;
-    transition: 0.3s;
-    border-radius: 50px;
-}
-
-#footer .footer-top .footer-newsletter form input[type="submit"]:hover {
-    background: #d3af71;
-}
-
 #footer .copyright {
     text-align: center;
     padding-top: 30px;
@@ -1251,20 +1059,65 @@ section {
     color: #fff;
 }
 
-/*----- Login Page -----*/
-.login .section-title {
-    padding-top: 100px;
-    background-color: #0c0b09;
+/*----- Log In, Log Out, Sign Up and Booktable buttons -----*/
+
+.btn-booktable,
+.btn-signup,
+.btn-logout,
+.btn-login {
+    margin: 0 0 0 15px;
+    border: 2px solid #cda45e;
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: 0.3s;
 }
 
+.btn-booktable:hover,
+.btn-signup:hover,
+.btn-logout:hover,
+.btn-login:hover {
+    background: #cda45e;
+    color: #fff;
+}
+
+@media (max-width: 992px) {
+    .btn-booktable,
+    .btn-signup,
+    .btn-logout,
+    .btn-login {
+        margin: 0 15px 0 0;
+        padding: 8px 20px;
+    }
+}
+
+/*----- Booktable, Logout, Signup & Login Pages - General -----*/
+.booktable,
+.logout,
+.signup,
+.login {
+    background-color: #000000;
+}
+
+.booktable .bt-booktable,
+.logout .bt-logout,
+.signup .bt-signup,
 .login .bt-login {
     position: absolute;
     left: 10px;
 }
 
+.signup .signup-form,
 .login .login-form {
     width: 100%;
+    color:#fff;
 }
+
 
 .login .login-form .form-group {
     padding-bottom: 8px;
@@ -1387,30 +1240,30 @@ section {
     color: #fff;
 }
 
-/*----- Sign up & Sign out Page -----*/
+/*----- Sign up & Log out Page -----*/
 .signup .section-title,
-.signout .section-title {
+.logout .section-title {
     padding-top: 60px;
 }
 
 .signup .bt-signup,
-.signout .bt-signout {
+.logout .bt-logout {
     position: absolute;
     left: 10px;
 }
 
 .signup .signup-form,
-.signout .signout-form {
+.logout .logout-form {
     width: 100%;
 }
 
 .signup .signup-form .form-group,
-.signout .signout-form .form-group {
+.logout .logout-form .form-group {
     padding-bottom: 8px;
 }
 
 .signup .signup-form .validate,
-.signout .signout-form .validate {
+.logout .logout-form .validate {
     display: none;
     color: red;
     margin: 0 0 15px 0;
@@ -1419,7 +1272,7 @@ section {
 }
 
 .signup .signup-form .error-message,
-.signout .signout-form .error-message {
+.logout .logout-form .error-message {
     display: none;
     color: #fff;
     background: #ed3c0d;
@@ -1429,12 +1282,12 @@ section {
 }
 
 .signup .signup-form .error-message br+br,
-.signout .signout-form .error-message br+br {
+.logout .logout-form .error-message br+br {
     margin-top: 25px;
 }
 
 .signup .signup-form .sent-message,
-.signout .signout-form .sent-message {
+.logout .logout-form .sent-message {
     display: none;
     color: #fff;
     background: #18d26e;
@@ -1444,14 +1297,14 @@ section {
 }
 
 .signup .signup-form .loading,
-.signout .signout-form .loading {
+.logout .logout-form .loading {
     display: none;
     text-align: center;
     padding: 15px;
 }
 
 .signup .signup-form .loading:before,
-.signout .signout-form .loading:before {
+.logout .logout-form .loading:before {
     content: "";
     display: inline-block;
     border-radius: 50%;
@@ -1465,8 +1318,8 @@ section {
 
 .signup .signup-form input,
 .signup .signup-form textarea,
-.signout .signout-form input,
-.signout .signout-form textarea {
+.logout .logout-form input,
+.logout .logout-form textarea {
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
@@ -1475,39 +1328,39 @@ section {
     color: white;
 }
 
-.signup .losignupgin-form input::-moz-placeholder,
+.signup .signup-form input::-moz-placeholder,
 .signup .signup-form textarea::-moz-placeholder,
-.signout .losignupgin-form input::-moz-placeholder,
-.signout .signout-form textarea::-moz-placeholder {
+.logout .logout-form input::-moz-placeholder,
+.logout .logout-form textarea::-moz-placeholder {
     color: #a49b89;
 }
 
 .signup .signup-form input::placeholder,
 .signup .signup-form textarea::placeholder,
-.signout .signout-form input::placeholder,
-.signout .signout-form textarea::placeholder {
+.logout .logout-form input::placeholder,
+.logout .logout-form textarea::placeholder {
     color: #a49b89;
 }
 
 .signup .signup-form input:focus,
 .signup .signup-form textarea:focus,
-.signout .signout-form input:focus,
-.signout .signout-form textarea:focus {
+.logout .logout-form input:focus,
+.logout .logout-form textarea:focus {
     border-color: #cda45e;
 }
 
 .signup .signup-form input,
-.signout .signout-form input {
+.logout .logout-form input {
     height: 44px;
 }
 
 .signup .signup-form textarea,
-.signout .signout-form textarea {
+.logout .logout-form textarea {
     padding: 10px 12px;
 }
 
 .signup .signup-form button[type=submit],
-.signout .signout-form button[type=submit] {
+.logout .logout-form button[type=submit] {
     background: #cda45e;
     border: 0;
     padding: 10px 35px;
@@ -1517,14 +1370,14 @@ section {
 }
 
 .signup .signup-form button[type=submit]:hover,
-.signout .signout-form button[type=submit]:hover {
+.logout .logout-form button[type=submit]:hover {
     background: #d3af71;
 }
 
 .signup .btn-login,
 .signup .btn-signup,
 .signup .btn-booktable,
-.signout .btn-signout {
+.logout .btn-logout {
     font-weight: 600;
     font-size: 13px;
     letter-spacing: 0.5px;
@@ -1541,7 +1394,7 @@ section {
 .login .btn-login:hover,
 .login .btn-signup:hover,
 .login .btn-booktable:hover,
-.login .btn-signout:hover {
+.login .btn-logout:hover {
     background: #cda45e;
     color: #fff;
 }
@@ -1624,4 +1477,40 @@ section {
 .booktable .floorplan-img:hover::after {
     right: 10px;
     bottom: 10px;
+}
+
+/*----- Booktable Edit and Delete buttons -----*/
+
+.btn-edit,
+.btn-delete {
+    margin: 0 0 0 15px;
+    border: 2px solid #cda45e;
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-edit:hover {
+    background: ##FFFF00;
+    color: #000000;
+}
+
+.btn-delete:hover {
+    background: #FF0000;
+    color: #fff;
+}
+
+@media (max-width: 992px) {
+
+    .btn-edit,
+    .btn-delete {
+        margin: 0 15px 0 0;
+        padding: 8px 20px;
+    }
 }
