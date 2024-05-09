@@ -8,7 +8,3 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ['username',]
 
-
-class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)

@@ -252,7 +252,7 @@ The following have been used during this website:
 
 ## 4. Important code functions<br/>
 
-#### 4.1 Python classes and functions<br/>
+#### 4.1 Custom Python classes and functions<br/>
 
 The key custom classes for this project are as:
 
@@ -272,6 +272,12 @@ This function enables a list of own active bookings to be shown to the user. Sup
 
 - edit_reservation (booking/views.py)
 This function is connected to the get_bookings function and enables the user to edit or delete their bookings.
+
+- RegisterForm (users/forms.py)
+A new user "signup" form
+
+- LoginForm (users/forms.py)
+A "login" user form that checks username and password
 
 #### 4.2 Python start code<br/>
 
