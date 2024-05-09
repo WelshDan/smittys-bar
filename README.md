@@ -23,7 +23,7 @@ Edited in the Cross Platform Cloud IDE Gitpod <https://www.gitpod.io/>
     3.3 Programs and tools<br/>
 4. Important code functions<br/>
     4.1 Python functions<br/>
-    4.2 Python start code<br/>
+    4.2 Python planning<br/>
 5. Testing<br/>
     5.1 Manual testing<br/>
     5.2 Other tests<br/>
@@ -216,13 +216,14 @@ Here a logged in user can create a new booking or they can also see, edit or del
 #### 3.2 Log in details
 
 Superuser:
-email: dan@gmail.com
-Password: dan
+username: Admin
+email: admin@gmail.com
+Password: admin
 
 
 Test User:
-tom@gmail.com / Tom:2024
-sam@gmail.com / Sam:2024
+Nia / nia@gmail.com / niapassword
+Sam / sam@gmail.com / sampassword
 
 --------
 
@@ -279,7 +280,13 @@ A new user "signup" form
 - LoginForm (users/forms.py)
 A "login" user form that checks username and password
 
-#### 4.2 Python start code<br/>
+#### 4.2 Python planning<br/>
+
+The following are the entity relationship diagrams for the Users and the Bookings models:
+
+![Screenshot](static/img/README/users_rel.jpg "Users entity relationship diagram")
+
+![Screenshot](static/img/README/bookings_rel.jpg "Bookings entity relationship diagram")
 
 ----------
 
@@ -314,6 +321,11 @@ A "login" user form that checks username and password
 | 23   | Log in page                     | Click Sign Up button                                            | Should be directed to sign up page                                                                              | Yes               |
 | 24   | Sign up page                    | Enter first name, surname, email and password and click submit  | User should then be signed up and returned to the log in page to log in.                                        | Yes              |
 | 25   | 404 page                        | Deliberately create an error                                    | Should be directed to 404 page                                                                                  | No               |
+| 26   | Booktable page                  | Test to see created bookings are visible                        | Should show a list of users active bookings                                                                     | No               |
+| 27   | Booktable page                  | Click the edit button                                           | Should be directed to the edit_reservation page                                                                 | No               |
+| 28   | Booktable page                  | Edit a booking                                                  | Booking should be edited and then updated in the user's active reservations list                                | No               |
+| 29   | Booktable page                  | Create a booking                                                | Booking should be saved and added to the user's active reservations list                                        | No               |
+| 30   | Booktable page                  | Click the delete button                                         | Should be directed to the delete_reservation page                                                               | No               |
 
 ## 5.2 Other tests
 

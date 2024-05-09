@@ -13,15 +13,15 @@ class TableBookingForm(forms.ModelForm):
 
     class Meta:
         model = Reservation
-        fields = ('table_number', 'date', 'start_time', 'end_time', 'email')
+        fields = ('table_number', 'date', 'start_time', 'end_time')
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
         if user and user.is_authenticated:
             try:
-                current_user = User.objects.get(email=user.email)
-                self.fields['email'].initial = current_user
+                current_user = User.objects.get(username=user.username)
+                self.fields['username'].initial = current_user
             except User.DoesNotExist:
                 pass
 

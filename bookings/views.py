@@ -7,19 +7,19 @@ from .models import Reservation
 from .forms import TableBookingForm
 
 
+@login_required
 def reserve_table(request):
     submitted = False
     active_booking = False
     form = TableBookingForm()
 
     try:
-        current_user = User.objects.get(email=request.user.email)
-        user_bookings = Reservation.objects.filter(email=current_user).filter(active_booking=True)
+        current_user = User.objects.get(username=request.user.username)
+        user_bookings = Reservation.objects.filter(username=current_user).filter(active_booking=True)
     except User.DoesNotExist:
         current_user = None
         user_bookings = None
 
-    if current_user:
         if request.method == "POST":
             form = TableBookingForm(request.POST, user=request.user)
             if form.is_valid():
@@ -32,10 +32,9 @@ def reserve_table(request):
                 submitted = True
                 active_booking = True
         return render(request, 'booktable.html', {'form':form, 'submitted':submitted, 'bookings':user_bookings})
-    else:
-            return HttpResponseRedirect('/signup')
 
 
+@login_required
 def edit_reservation(request, booking_id):
     current_user = User.objects.get(email=request.user.email)
     user_bookings = Reservation.objects.filter(email=current_user).filter(active_booking=True)
@@ -50,6 +49,7 @@ def edit_reservation(request, booking_id):
     return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
 
 
+@login_required
 def delete_reservation(request, booking_id):
         booking = Reservation.objects.get(pk=booking_id)
         booking.delete()
