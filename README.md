@@ -158,7 +158,7 @@ This is the page in its default position. Before logging in, the user can either
 
 And this is the page after logging in, the user can now access the "Book a Table" page or choose to log out:
 
-![Screenshot](static/img/README/homepage_start_inlogged.jpg "Main page hero when logged in")
+![Screenshot](static/img/README/homepage_start_inlogged.jpg "Main page hero when logged in"
 
 ##### Links on main page
 
@@ -182,6 +182,9 @@ The Gallery:
 Contact Us:
 ![Screenshot](static/img/README/contactus_navbar.jpg "Contact section of the main page")
 
+NavBar on mobile sizes:
+When screens are reduced, a dropdown menu replaces the list of homepage links and also at the very top, only the logged in status is shown
+![Screenshot](static/img/README/navbar_mobile.jpg "Navbar links related to homepage replaced by dropdown and only logged in status is shown")
 
 ### Other html pages
 
