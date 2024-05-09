@@ -11,7 +11,7 @@
             <div class="col-lg-8">
                 <h1>Welcome to <span>Smitty's</span></h1>
                 {% if user.is_authenticated %}
-                <h2>Book a table!</h2>
+                <h2>Click below to book a table!</h2>
                 <div class="btns">
                     <a href="{% url 'booktable' %}" class="btn-booktable animated fadeInUp scrollto">Book a Table</a>
                     <a href="{% url 'account_logout' %}" class="btn-logout animated fadeInUp scrollto">Log Out</a>

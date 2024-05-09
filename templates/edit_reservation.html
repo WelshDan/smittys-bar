@@ -23,7 +23,7 @@
                 {{ form.media }}
 
 
-                <input type="submit" value="Update" class="btn-login animated fadeInUp scrollto">
+                <input type="submit" value="Update" class="btn-edit animated fadeInUp scrollto">
 
             </form>
             {% endif %}
@@ -54,11 +54,11 @@
                                 <td>{{ booking.date }}</td>
                                 <td>{{ booking.start_time }} to {{ booking.end_time }}</td>
                                 <td><a href="{% url 'edit_reservation' booking.booking_id %}">
-                                        <button>Edit</button>
+                                        <button class="btn-edit">Edit</button>
                                     </a>
                                 </td>
                                 <td><a href="{% url 'delete_reservation' booking.booking_id %}">
-                                        <button>Delete</button>
+                                        <button class="btn-delete">Delete</button>
                                     </a>
                                 </td>
                             </tr>

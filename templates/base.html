@@ -61,26 +61,22 @@
             <!-- .navbar -->
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
-                    <li>
-                        <a class="nav-link scrollto active" href="{% url 'index' %}#hero">Home</a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" href="{% url 'index' %}#howtobook">How to Book</a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" href="{% url 'index' %}#menu">Menu</a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" href="{% url 'index' %}#drinks">Drinks</a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" href="{% url 'index' %}#events">Events</a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" href="{% url 'index' %}#gallery">Gallery</a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" href="{% url 'index' %}#contact">Contact</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Home
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'index' %}#hero">Home</a></li>
+                            <li><a class="dropdown-item" href="{% url 'index' %}#howtobook">How to book</a></li>
+                            <li><a class="dropdown-item" href="{% url 'index' %}#menu">Menu</a></li>
+                            <li><a class="dropdown-item" href="{% url 'index' %}#drinks">Drinks</a></li>
+                            <li><a class="dropdown-item" href="{% url 'index' %}#events">Events</a></li>
+                            <li><a class="dropdown-item" href="{% url 'index' %}#gallery">Gallery</a></li>
+                            <li><a class="dropdown-item" href="{% url 'index' %}#contact">Contact</a></li>
+                    
+                    
+                        </ul>
                     </li>
                     <!-- Log In or Log Out button -->
 
@@ -108,7 +104,6 @@
                     </li>
                     {% endif %}
                 </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
     </header>
 
