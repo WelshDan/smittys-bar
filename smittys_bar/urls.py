@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from bookings import views as bookings_views
-from users import views
+from bookings import views
+from customers import views
 from allauth.socialaccount.models import SocialToken, SocialAccount, SocialApp
 
 
@@ -26,12 +26,11 @@ urlpatterns = [
     path('', views.get_index, name='index'),
     path('accounts/', include('allauth.urls')),
     path('base/', views.get_base, name='base'),
-    path('booktable/', bookings_views.reserve_table, name='booktable'),
     path('bookings/', include('bookings.urls')),
-    path('users/', include('users.urls')),
+    path('customers/', include('customers.urls')),
 ]
 
-handler404 = 'users.views.error_404'
+handler404 = 'customers.views.error_404'
 
 # Admin titles and headings"
 admin.site.index_title = "Smitty's Bar & Restaurant"

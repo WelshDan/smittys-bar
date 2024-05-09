@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import Customer
 
 
 class RegisterForm(UserCreationForm):
     class Meta:
-        model = User
+        model = Customer
         fields = ['username',]
 

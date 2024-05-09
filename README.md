@@ -123,7 +123,7 @@ The website has 4 navigational HTML pages:
 | 'index' Home             | Loading homepage, 'logging out' |
 | 'login' Login            |   Clicking on 'Log in' button   |
 | 'signup' Sign Up         |  Clicking on 'Sign up' button   |
-| 'booktable' Book-a-table | Clicking on 'Book a table' button |
+| 'reserve_table'Booking   | Clicking on 'Book a table' button |
 
 #### Homepage start up screen
 
@@ -206,11 +206,11 @@ This is the screen which asks the user if they really do want to log out.
 
 ![Screenshot] "Log out page")
 
-##### Booktable page
+##### Book a table page
 
 Here a logged in user can create a new booking or they can also see, edit or delete their active bookings via the get_booking function.
 
-![Screenshot] "Booktable page")
+![Screenshot] "Book a table page")
 
 
 #### 3.2 Log in details
@@ -258,7 +258,7 @@ The following have been used during this website:
 The key custom classes for this project are as:
 
 - Reservations (booking/models.py)
-This class creates the basis of the booking function of booktable.
+This class creates the basis of the booking function of booking a table.
 
 - TableBookingForm (booking/forms.py)
 This form class provides the structure of the booking function incuding validation checks as well as setting the date and time choices using the DatePickerInput and TimePickerInput.
@@ -321,11 +321,11 @@ The following are the entity relationship diagrams for the Users and the Booking
 | 23   | Log in page                     | Click Sign Up button                                            | Should be directed to sign up page                                                                              | Yes               |
 | 24   | Sign up page                    | Enter first name, surname, email and password and click submit  | User should then be signed up and returned to the log in page to log in.                                        | Yes              |
 | 25   | 404 page                        | Deliberately create an error                                    | Should be directed to 404 page                                                                                  | No               |
-| 26   | Booktable page                  | Test to see created bookings are visible                        | Should show a list of users active bookings                                                                     | No               |
-| 27   | Booktable page                  | Click the edit button                                           | Should be directed to the edit_reservation page                                                                 | No               |
-| 28   | Booktable page                  | Edit a booking                                                  | Booking should be edited and then updated in the user's active reservations list                                | No               |
-| 29   | Booktable page                  | Create a booking                                                | Booking should be saved and added to the user's active reservations list                                        | No               |
-| 30   | Booktable page                  | Click the delete button                                         | Should be directed to the delete_reservation page                                                               | No               |
+| 26   | reserve_table page              | Test to see created bookings are visible                        | Should show a list of users active bookings                                                                     | No               |
+| 27   | reserve_table page              | Click the edit button                                           | Should be directed to the edit_reservation page                                                                 | No               |
+| 28   | reserve_table page              | Edit a booking                                                  | Booking should be edited and then updated in the user's active reservations list                                | No               |
+| 29   | reserve_table page              | Create a booking                                                | Booking should be saved and added to the user's active reservations list                                        | No               |
+| 30   | reserve_table page                | Click the delete button                                         | Should be directed to the delete_reservation page                                                               | No               |
 
 ## 5.2 Other tests
 

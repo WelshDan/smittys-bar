@@ -1,7 +1,7 @@
 {% load static %}
 
 {% url 'index' as index_url %}
-{% url 'booktable' as booktable_url %}
+{% url 'reserve_table' as 'booktable_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -105,7 +105,7 @@
                     <li>
                         <a class="nav-link {% if request.path == booktable_url %}active{% endif %}"
                             class="btn-booktable animated fadeInUp scrollto" aria-current="page"
-                            href="{% url 'booktable' %}">Book Table</a>
+                            href="{% url 'reserve_table' %}">Book Table</a>
                     </li>
                     <li>
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}"

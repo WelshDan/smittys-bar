@@ -2,22 +2,23 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from users.models import User
+# from customers.models import User
 from .models import Reservation
 from .forms import TableBookingForm
+from django.contrib.auth.models import User
 
 
 @login_required
 def reserve_table(request):
     submitted = False
     active_booking = False
-    current_user = User.objects.get(username=request.user.username)
-    user_bookings = Reservation.objects.filter(username=current_user).filter(active_booking=True)
+    current_user = User.objects.get(username=request.user)
+#     user_bookings = Reservation.objects.filter(username=current_user).filter(active_booking=True)
     form = TableBookingForm()
     if request.method == "POST":
         form = TableBookingForm(request.POST, user=request.user)
         if form.is_valid():
-            form.instance.email = current_user
+            form.instance.user = current_user.id
             form.save()
             return HttpResponseRedirect('/booktable')
     else:
@@ -25,7 +26,7 @@ def reserve_table(request):
         if 'submitted' in request.GET:
             submitted = True
             active_booking = True
-    return render(request, 'booktable.html', {'form':form, 'submitted':submitted, 'bookings':user_bookings})
+    return render(request, 'booktable.html', {'form':form, 'submitted':submitted})
 
 
 @login_required

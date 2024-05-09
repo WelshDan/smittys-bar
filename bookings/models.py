@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from customers.models import User
 from django.utils import timezone
 
 
@@ -53,9 +53,8 @@ TABLE_NUMBERS = (
 
 class Reservation(models.Model):
     now = timezone.now()
-
+    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user', default="")
     booking_id = models.AutoField(primary_key=True)
-    email = models.ForeignKey(User, on_delete=models.CASCADE)
     table_number = models.CharField(
         max_length=20,
         choices=TABLE_NUMBERS,
@@ -67,4 +66,4 @@ class Reservation(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Reservation #{self.booking_id} - Email {self.email} - Table No {self.table_number} - Date {self.date} - From {self.start_time} - Till {self.end_time} - Active? {self.active_booking}"
+        return f"Reservation #{self.booking_id} - Username {self.username} - Table No {self.table_number} - Date {self.date} - From {self.start_time} - Till {self.end_time} - Active? {self.active_booking}"
