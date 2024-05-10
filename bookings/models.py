@@ -1,6 +1,7 @@
 from django.db import models
-from customers.models import User
+from django.contrib.auth.models import User
 from django.utils import timezone
+from customers.models import Customer
 
 
 TABLE_NUMBERS = (

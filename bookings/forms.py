@@ -11,6 +11,10 @@ class TableBookingForm(forms.ModelForm):
     start_time = forms.TimeField(widget=TimePickerInput)
     end_time = forms.TimeField(widget=TimePickerInput)
 
+    def __init__(self, *args, user=None, **kwargs):
+        super(TableBookingForm, self).__init__(*args, **kwargs)
+        self.user = user
+
     class Meta:
         model = Reservation
         fields = ('table_number', 'date', 'start_time', 'end_time')

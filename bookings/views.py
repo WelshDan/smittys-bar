@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-# from customers.models import User
+#from customers.models import Customer
 from .models import Reservation
 from .forms import TableBookingForm
 from django.contrib.auth.models import User
@@ -12,8 +12,7 @@ from django.contrib.auth.models import User
 def reserve_table(request):
     submitted = False
     active_booking = False
-    current_user = User.objects.get(username=request.user)
-#     user_bookings = Reservation.objects.filter(username=current_user).filter(active_booking=True)
+    user_bookings = Reservation.objects.filter(username=request.user.id).filter(active_booking=True)
     form = TableBookingForm()
     if request.method == "POST":
         form = TableBookingForm(request.POST, user=request.user)
@@ -53,7 +52,7 @@ def delete_reservation(request, booking_id):
 
 @login_required
 def get_bookings(request):
-        current_user = User.objects.get(email=request.user.email)
+        current_user = User.objects.get(username=request.user)
         if request.user.is_superuser:
                 bookings = Reservation.objects.all()
         else:

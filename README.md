@@ -33,7 +33,7 @@ Edited in the Cross Platform Cloud IDE Gitpod <https://www.gitpod.io/>
     6.3 Possible future developments<br/>
 7. Deployment<br/>
     7.1 Heroku deployment<br/>
-    7.2 ElephantSQL creation<br/>
+    7.2 ElephantSQL/Code Institute db<br/>
 8. Credits<br/>
     8.1 Credits<br/>
     8.2 References<br/>
@@ -437,7 +437,9 @@ The final part to the deployment is to connect your Heroku app to Github:
 
 Further information can be found on the Heroku site [here](https://devcenter.heroku.com/articles/git)
 
-#### 7.2 ElephantSQL creation
+#### 7.2 ElephantSQL/Code Institute db
+
+A database with ElephantSQL was initially set up but was later replaced for [Code Institutes own db](https://dbs.ci-dbs.net/)
 
 Link to the creation of the ElephantSQL database can be found [here](https://www.elephantsql.com/docs/index.html)
 
