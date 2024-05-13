@@ -10,16 +10,7 @@ class TableBookingForm(forms.ModelForm):
     date = forms.DateField(widget=DatePickerInput)
     start_time = forms.TimeField(widget=TimePickerInput)
     end_time = forms.TimeField(widget=TimePickerInput)
-
-    def __init__(self, *args, user=None, **kwargs):
-        super(TableBookingForm, self).__init__(*args, **kwargs)
-        self.user = user
-        if user and user.is_authenticated:
-            try:
-                current_user = User.objects.get(username=user.username)
-                self.fields['username'].initial = current_user
-            except User.DoesNotExist:
-                pass
+    
 
     class Meta:
         model = Reservation
