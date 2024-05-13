@@ -37,7 +37,7 @@ def edit_reservation(request, booking_id):
         if form.is_valid():
                 form.instance.username = request.user
                 form.save()
-                return redirect('booktable')
+                return redirect('reserve_table')
     return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
 
 
@@ -45,7 +45,7 @@ def edit_reservation(request, booking_id):
 def delete_reservation(request, booking_id):
         booking = Reservation.objects.get(pk=booking_id)
         booking.delete()
-        return redirect('booktable')
+        return redirect('reserve_table')
 
 
 @login_required
