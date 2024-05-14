@@ -15,7 +15,7 @@
     </div>
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2">
-        <form action="{% url 'account_signup' %}" method="POST" id="signup_form" role="form" class="signup-form aos-init aos animate"
+        <form action="{% url 'account_signup' %}" method="POST" id="signup_form" role="form" class="form-control aos-init aos animate"
           data-aos="fade-up" data-aos-delay="100">
           {% csrf_token %}
           {{ form.as_p }}

@@ -16,6 +16,13 @@ class TableBookingForm(forms.ModelForm):
         model = Reservation
         fields = ('table_number', 'date', 'start_time', 'end_time')
 
+        widget = {
+            'table_number': forms.Select(attrs={'class': 'form-control'}),
+            'date': forms.Select(attrs={'class': 'form-control'}),
+            'start_time': forms.Select(attrs={'class': 'form-control'}),
+            'end_time': forms.Select(attrs={'class': 'form-control'}),
+        }
+
     def clean(self):
         cleaned_data = super().clean()
         table_number = cleaned_data.get('table_number')

@@ -1052,15 +1052,16 @@ section {
     color: #fff;
 }
 
-/*----- Log In, Log Out, Sign Up and Booktable buttons -----*/
+/*----- Buttons -----*/
 
+.btn-create,
 .btn-booktable,
 .btn-signup,
 .btn-logout,
 .btn-login {
     margin: 0 0 0 15px;
     border: 2px solid #cda45e;
-    color: #fff;
+    color: #000000;
     border-radius: 50px;
     padding: 8px 25px;
     text-transform: uppercase;
@@ -1071,6 +1072,7 @@ section {
     transition: 0.3s;
 }
 
+.btn-create:hover,
 .btn-booktable:hover,
 .btn-signup:hover,
 .btn-logout:hover,
@@ -1080,6 +1082,7 @@ section {
 }
 
 @media (max-width: 992px) {
+    .btn-create,
     .btn-booktable,
     .btn-signup,
     .btn-logout,
@@ -1100,6 +1103,13 @@ section {
     background-color: #000000;
 }
 
+.signup .form-control,
+.login .form-control {
+    color: #fff;
+    background-color: #000000;
+    border: none;
+}
+
 .booktable .bt-booktable,
 .logout .bt-logout,
 .signup .bt-signup,
@@ -1108,110 +1118,6 @@ section {
     left: 10px;
 }
 
-.signup .signup-form,
-.login .login-form {
-    width: 100%;
-    color:#fff;
-}
-
-
-.login .login-form .form-group {
-    padding-bottom: 8px;
-}
-
-.login .login-form .validate {
-    display: none;
-    color: red;
-    margin: 0 0 15px 0;
-    font-weight: 400;
-    font-size: 13px;
-}
-
-.login .login-form .error-message {
-    display: none;
-    color: #fff;
-    background: #ed3c0d;
-    text-align: left;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.login .login-form .error-message br+br {
-    margin-top: 25px;
-}
-
-.login .login-form .sent-message {
-    display: none;
-    color: #fff;
-    background: #18d26e;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.login .login-form .loading {
-    display: none;
-    text-align: center;
-    padding: 15px;
-}
-
-.login .login-form .loading:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px -6px 0;
-    border: 3px solid #cda45e;
-    border-top-color: #1a1814;
-    animation: animate-loading 1s linear infinite;
-}
-
-.login .login-form input,
-.login .login-form textarea {
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 14px;
-    background: #0c0b09;
-    border-color: #625b4b;
-    color: white;
-}
-
-.login .login-form input::-moz-placeholder,
-.login .login-form textarea::-moz-placeholder {
-    color: #a49b89;
-}
-
-.login .login-form input::placeholder,
-.login .login-form textarea::placeholder {
-    color: #a49b89;
-}
-
-.login .login-form input:focus,
-.login .login-form textarea:focus {
-    border-color: #cda45e;
-}
-
-.login .login-form input {
-    height: 44px;
-}
-
-.login .login-form textarea {
-    padding: 10px 12px;
-}
-
-.login .login-form button[type=submit] {
-    background: #cda45e;
-    border: 0;
-    padding: 10px 35px;
-    color: #fff;
-    transition: 0.4s;
-    border-radius: 50px;
-}
-
-.login .login-form button[type=submit]:hover {
-    background: #d3af71;
-}
 
 .login .btn-login,
 .login .btn-signup,
@@ -1236,6 +1142,7 @@ section {
     color: #fff;
 }
 
+
 /*----- Sign up & Log out Page -----*/
 .signup .section-title,
 .logout .section-title {
@@ -1256,40 +1163,6 @@ section {
 .signup .signup-form .form-group,
 .logout .logout-form .form-group {
     padding-bottom: 8px;
-}
-
-.signup .signup-form .validate,
-.logout .logout-form .validate {
-    display: none;
-    color: red;
-    margin: 0 0 15px 0;
-    font-weight: 400;
-    font-size: 13px;
-}
-
-.signup .signup-form .error-message,
-.logout .logout-form .error-message {
-    display: none;
-    color: #fff;
-    background: #ed3c0d;
-    text-align: left;
-    padding: 15px;
-    font-weight: 600;
-}
-
-.signup .signup-form .error-message br+br,
-.logout .logout-form .error-message br+br {
-    margin-top: 25px;
-}
-
-.signup .signup-form .sent-message,
-.logout .logout-form .sent-message {
-    display: none;
-    color: #fff;
-    background: #18d26e;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
 }
 
 .signup .signup-form .loading,
@@ -1401,10 +1274,6 @@ section {
     padding-top: 120px;
 }
 
-.booktable .form-group p {
-    color: #fff;
-}
-
 .booktable .event-table {
     color: #fff;
     border-bottom: none;
@@ -1414,16 +1283,38 @@ section {
     font-weight: bold;
 }
 
+
 .booktable .table tr:last-child th,
 .booktable .table tr:last-child td {
     border: none;
 }
+
+.event_information .event-table {
+    color: #fff;
+}
+
+.reserved .form-control {
+    color: #fff;
+    background-color: #000000;
+    border: none;
+}
+
 
 .floorplan-img {
     height: auto;
     max-width: 100%;
 }
 
+.floorplan .floorplan-img {
+    position: relative;
+    transition: .5s;
+}
+
+.floorplan .floorplan-img img {
+    max-width: 100%;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
 
 /*----- Booktable Edit and Delete buttons -----*/
 

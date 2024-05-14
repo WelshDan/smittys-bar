@@ -42,7 +42,7 @@
         </div>
         <div class="row">
             <div class="col-md-8 mt-3 offset-md-2">
-                <form action="{% url 'account_login' %}" method="POST" class="login-form" data-aos="fade-up" data-aos-delay="100">
+                <form action="{% url 'account_login' %}" method="POST" class="form-control" data-aos="fade-up" data-aos-delay="100">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button class="btn btn-login" type="submit">{% trans "Log In" %}</button>
