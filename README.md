@@ -4,7 +4,7 @@ Bootstrapped using the Restaurantly website template available from <https://boo
 
 Edited in the Cross Platform Cloud IDE Gitpod <https://www.gitpod.io/>
 
-![Screenshot](static/img/README/smittys-logo.jpg "Smitty Logo")
+![Screenshot](static/img/README/multi-mockup.jpg "Homepage across many sizes using the Multi Device Mockup")
 
 ---------------
 
@@ -77,13 +77,9 @@ This flowchart was created to show a simplified version of the main pages involv
 
 ![Screenshot](static/img/README/smittys_flowchart.png "Flowchart plan of the website layout")
 
-Wireframe - mobile
+Wireframe
 
-![Screenshot](static/img/README/mobile_wireframe.jpg "Initial wireframe of mobile design")
-
-Wireframe - desktop
-
-![Screenshot](static/img/README/desktop_wireframe.jpg "Initial wireframe of desktop design")
+![Screenshot](static/img/README/wireframe1.jpg "Initial wireframe of mobile design")
 
 #### 2.2 User Stories
 
@@ -158,7 +154,7 @@ This is the page in its default position. Before logging in, the user can either
 
 And this is the page after logging in, the user can now access the "Book a Table" page or choose to log out:
 
-![Screenshot](static/img/README/homepage_start_inlogged.jpg "Main page hero when logged in"
+![Screenshot](static/img/README/homepage_start_inlogged.jpg "Main page hero when logged in")
 
 ##### Links on main page
 
@@ -211,6 +207,12 @@ This is the screen which asks the user if they really do want to log out.
 Here a logged in user can create a new booking or they can also see, edit or delete their active bookings via the get_booking function.
 
 ![Screenshot] "Book a table page")
+
+##### Messages
+
+There are pop up messages that inform the user. The can also be closed.
+
+![Screenshot](static/img/README/msgs.jpg "Message pop up with closable icon")
 
 
 #### 3.2 Log in details
@@ -331,9 +333,11 @@ The following are the entity relationship diagrams for the Users and the Booking
 
 Manual Testing 26 - Known issue booktable form is not storing bookings
 
-Lighthouse results:
+Lighthouse results in desktop and then mobile formats:
 
-![Screenshot](static/img/README/lighthouse.jpg "test results from lighthouse")
+![Screenshot](static/img/README/lighthouse_desktop.jpg "test results from lighthouse")
+
+![Screenshot](static/img/README/lighthouse_mobile.jpg "test results from lighthouse")
 
 -------------
 

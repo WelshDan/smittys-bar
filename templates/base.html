@@ -56,7 +56,7 @@
         {% for message in messages %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>{{ message }}</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -86,7 +86,26 @@
                         <li><a class="dropdown-item" href="{% url 'index' %}#events">Events</a></li>
                         <li><a class="dropdown-item" href="{% url 'index' %}#gallery">Gallery</a></li>
                         <li><a class="dropdown-item" href="{% url 'index' %}#contact">Contact</a></li>
-                
+                        {% if request.user.is_authenticated %}
+                        <li>
+                            <a class="nav-link {% if request.path == booktable_url %}active{% endif %}"
+                                class="btn-booktable animated fadeInUp scrollto" aria-current="page" href="{% url 'reserve_table' %}">Book
+                                Table</a>
+                        </li>
+                        <li>
+                            <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
+                                class="btn-logout animated fadeInUp scrollto" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
+                                class="btn-signup animated fadeInUp scrollto" aria-current="page" href="{% url 'account_signup' %}">Sign Up</a>
+                        </li>
+                        <li>
+                            <a class="nav-link {% if request.path == login_url %}active{% endif %}" class="btn-login animated fadeInUp scrollto"
+                                aria-current="page" href="{% url 'account_login' %}">Login</a>
+                        </li>
+                        {% endif %}
                 
                     </ul>
                 </li>
@@ -115,23 +134,23 @@
 
                 {% if request.user.is_authenticated %}
                 <li>
-                    <a class="nav-link {% if request.path == booktable_url %}active{% endif %}"
+                    <a class="nav-link d-none d-sm-block {% if request.path == booktable_url %}active{% endif %}"
                         class="btn-booktable animated fadeInUp scrollto" aria-current="page"
                         href="{% url 'reserve_table' %}">Book Table</a>
                 </li>
                 <li>
-                    <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
+                    <a class="nav-link d-none d-sm-block {% if request.path == logout_url %}active{% endif %}"
                         class="btn-logout animated fadeInUp scrollto" aria-current="page"
                         href="{% url 'account_logout' %}">Logout</a>
                 </li>
                 {% else %}
                 <li>
-                    <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
+                    <a class="nav-link d-none d-sm-block {% if request.path == signup_url %}active{% endif %}"
                         class="btn-signup animated fadeInUp scrollto" aria-current="page"
                         href="{% url 'account_signup' %}">Sign Up</a>
                 </li>
                 <li>
-                    <a class="nav-link {% if request.path == login_url %}active{% endif %}"
+                    <a class="nav-link d-none d-sm-block {% if request.path == login_url %}active{% endif %}"
                         class="btn-login animated fadeInUp scrollto" aria-current="page"
                         href="{% url 'account_login' %}">Login</a>
                 </li>
