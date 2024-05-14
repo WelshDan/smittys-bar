@@ -317,21 +317,21 @@ The following are the entity relationship diagrams for the Users and the Booking
 | 17   | Home page                       | In Contact section, map link should open new page to map        | Click on link and this should open up google maps                                                               | Yes              |
 | 18   | Home page                       | In Contact section, filling in a message should return an error | Contact us is not activated so filling in the form should return an error                                       | Yes              |
 | 19   | Home page                       | Click on restaurantly links at the bottom of the page           | Links should be deactivated so clicking should return the user to the top of the page                           | Yes              |
-| 20   | Home page                       | Click on logout button                                          | User should be logged out                                                                                                 | Yes               |
+| 20   | Home page                       | Click on logout button                                          | User should be logged out                                                                                       | Yes               |
 | 21   | Sign Up page                    | Enter details and click submit                                  | Details should be received and a new user created                                                               | Yes               |
 | 22   | Log in page                     | Enter email and password and click submit                       | User should then be logged in and returned to the homepage. The log out and booktable buttons should be visible | Yes              |
 | 23   | Log in page                     | Click Sign Up button                                            | Should be directed to sign up page                                                                              | Yes               |
 | 24   | Sign up page                    | Enter first name, surname, email and password and click submit  | User should then be signed up and returned to the log in page to log in.                                        | Yes              |
 | 25   | 404 page                        | Deliberately create an error                                    | Should be directed to 404 page                                                                                  | No               |
-| 26   | reserve_table page              | Test to see created bookings are visible                        | Should show a list of users active bookings                                                                     | No               |
-| 27   | reserve_table page              | Click the edit button                                           | Should be directed to the edit_reservation page                                                                 | No               |
-| 28   | reserve_table page              | Edit a booking                                                  | Booking should be edited and then updated in the user's active reservations list                                | No               |
-| 29   | reserve_table page              | Create a booking                                                | Booking should be saved and added to the user's active reservations list                                        | No               |
-| 30   | reserve_table page                | Click the delete button                                         | Should be directed to the delete_reservation page                                                               | No               |
+| 26   | reserve_table page              | Test to see created bookings are visible                        | Should show a list of users active bookings                                                                     | Yes               |
+| 27   | reserve_table page              | Click the edit button                                           | Should be directed to the edit_reservation page                                                                 | Yes               |
+| 28   | reserve_table page              | Edit a booking                                                  | Booking should be edited and then updated in the user's active reservations list                                | Yes               |
+| 29   | reserve_table page              | Create a booking                                                | Booking should be saved and added to the user's active reservations list                                        | Yes               |
+| 30   | reserve_table page                | Click the delete button                                         | Should be directed to the delete_reservation page                                                             | Yes               |
+| 31   | Home page                       | Test Navbar and their links in different media sizes             | Clickable links should direct to correct pages and sections                                                    | Yes               |
+
 
 ## 5.2 Other tests
-
-Manual Testing 26 - Known issue booktable form is not storing bookings
 
 Lighthouse results in desktop and then mobile formats:
 
@@ -345,27 +345,27 @@ Lighthouse results in desktop and then mobile formats:
 
 #### 6.1 Resolved issues
 
-- Origin checking failed - does not match any trusted origins
-[Add "CSRF_TRUSTED_ORIGINS =" to settings](https://stackoverflow.com/questions/38841109/csrf-validation-does-not-work-on-django-using-https)
-Changed to workspace link, then it should be changed to deloyed link address
 - PSQL database function not connected to booktable form (FIXED)
 - Table booking function on 'booktable.html' does not store information (FIXED)
 - There are styling inconsistencies on both 'login' and 'signup' pages (FIXED)
-- Drinks section of index. links not rotatable
+- There are navbar inconsistencies on small screens (FIXED)
+- Drinks section of index. links not rotatable (REMOVED)
+- Message function is created and the code is added to the 'base.html' file but it does not load (FIXED)
+- Due to previously using a template website for a one-page only, there were majoy issues with any connecting pages. This was remied by completely starting a new project.
+- Create functions for superusers. Superusers can see all bookings which would be needed as an owner of a booking website. Users are limited to their own active bookings only.
+- CRUD model not available (FIXED)
 
 #### 6.2 Unresolved issues
 
 **Bugs**
 
-- Message function is created and the code is added to the 'base.html' file but it does not load.
-- Lighthouse = page takes a long time to load, code needs to be cleansed
+- Poor styling of login and signup forms
+- Active bookings are not set to is_active=False on the passing of booking date/time.
 
 **Missing Parts & Issues**
 
-There are many missing parts to the website:
-
-- Due to a template website used for this, the style.css file contains code that is not used or not connected.
-- Wireframes are not
+- Mockups are not supplied
+- Automatic tests are limited or missing
 
 #### 6.3 Possible future developments
 
@@ -425,8 +425,6 @@ To deploy in Heroku, you'll need to do the following things once logged in:
 - CLOUDINARY_URL
 - DATABASE_URL
 - DISABLE_COLLECTSTAIC (only used during development)
-- POSTRESQL_DB
-- POSTGRESQL_ENGINE
 - SECRET_KEY
 
 ![Screenshot from the Heroku config vars section](static/img/README/heroku_deploy_four.jpg "Github deployment settings and pages")
@@ -454,8 +452,8 @@ Link to the creation of the ElephantSQL database can be found [here](https://www
 ## 8.1 Credits
 
 Mentor: Akshat Garg
-Fiverr debugger: Haris (coodingmentore)
-Tutor Support: Gemma, Sean, Roman and John
+
+Tutor Support
 
 ## 8.2 References
 
@@ -466,68 +464,14 @@ Tutor Support: Gemma, Sean, Roman and John
   Author: BootstrapMade.com
   License: <https://bootstrapmade.com/license/>
 
+  This template was used initially but a new project was later created. Stylings and some CSS was taken from this template.
+
   Help installing allauth:
-  Code with Stein <https://www.google.com/search?sca_esv=567555228&rlz=1C1CHBD_svSE1043SE1044&q=linking+django+allauth&tbm=vid&source=lnms&sa=X&ved=2ahUKEwjFjeKh9b2BAxUbRvEDHSdhA7MQ0pQJegQIChAB&biw=1536&bih=735&dpr=1.25#fpstate=ive&vld=cid:54078088>
+  [Code with Stein] (https://www.google.com/search?sca_esv=567555228&rlz=1C1CHBD_svSE1043SE1044&q=linking+django+allauth&tbm=vid&source=lnms&sa=X&ved=2ahUKEwjFjeKh9b2BAxUbRvEDHSdhA7MQ0pQJegQIChAB&biw=1536&bih=735&dpr=1.25#fpstate=ive&vld=cid:54078088)
 
-  Pictures:
-  Pixabay <https://pixabay.com/>
+  Gallery and background pictures:
+  [Pixabay] (https://pixabay.com/)
 
-  Help with authentication upon login:
-  djangoproject.com <https://docs.djangoproject.com/en/4.2/topics/auth/default/#auth-web-requests>
-
-  Help with postgresql connection:
-  Profile: "Pretty Printed" <https://www.youtube.com/watch?v=t6RbanOhna4>
-
-  Youtube online guides and tutorials: Codemy.com
-
-[connecting heroku and django](https://www.youtube.com/watch?v=UkokhawLKDU)
-- import django_heroku
-- from decouple import config
-- installed pipreqs to only use reqs that are necessary
-- installed piptools to combine
-
-[datetime](https://stackoverflow.com/questions/2029295/django-datefield-default-options)
-installing db in postgresql using Code Institute module [Database Management Systems](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DB101+2021_T1/courseware/c0c31790fcf540539fd2bd3678b12406/87ffa16374c74c55b202724586a834c9/?child=last)
-
-issues with migrations - Tutor Assistance (Holly) - migrations deleted and elephantsql database reset, then migrations rerun date 220124
-
-adding users email to forms & models (args and kwargs especially!)- Keith Herne
-
-## 8.3 Thanks
-
-Thanks to the assessors for their feedback and guidance. Thanks to my family for their support and patience.
-
-ISSUES
-changed requirements to show backports.zoneinfo==0.2.1;python_version<"3.9" instead of backports.zoneinfo==0.2.1 to correct startup issue
-
-messages, update settings with message tags...
-MESSAGE_TAGS = {
-
-        messages.DEBUG: 'alert-info',
-
-        messages.INFO: 'alert-info',
-
-        messages.SUCCESS: 'alert-success',
-
-        messages.WARNING: 'alert-warning',
-
-        messages.ERROR: 'alert-danger',
-
-    }
-
-added widgets file for timepicker
-
-[cleaning data in forms](https://www.youtube.com/watch?v=MUtc0pAF6b8)
-
-Custom User Model
-[Customising Django User Model](https://testdriven.io/blog/django-custom-user-model/)
-[Customising Django User Model - Very Academy](https://www.youtube.com/watch?v=Ae7nc1EGv-A&t=1502s)
-
-Switching Username to Email
-[Changing the username in login to use email](https://www.youtube.com/watch?v=hN0xbn4sENw)
-
-Gallery
-Pictures from [Pixabay](www.pixabay.com)
 - Duy Nod
 - Stocksnap
 - RondellMelling
@@ -536,3 +480,25 @@ Pictures from [Pixabay](www.pixabay.com)
 - OurWhiskyFoundation
 - pascalkoenig
 - Pexels
+
+Authentication upon login:
+  djangoproject.com <https://docs.djangoproject.com/en/4.2/topics/auth/default/#auth-web-requests>
+
+[Codemy.com](https://www.youtube.com/@Codemycom)
+
+[Cleaning data in forms](https://www.youtube.com/watch?v=MUtc0pAF6b8)
+
+[Connecting heroku and django](https://www.youtube.com/watch?v=UkokhawLKDU)
+- import django_heroku
+- from decouple import config
+- installed pipreqs to only use reqs that are necessary
+- installed piptools to combine
+
+[datetime](https://stackoverflow.com/questions/2029295/django-datefield-default-options)
+installing db in postgresql using Code Institute module [Database Management Systems](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DB101+2021_T1/courseware/c0c31790fcf540539fd2bd3678b12406/87ffa16374c74c55b202724586a834c9/?child=last)
+
+adding users email to forms & models (args and kwargs especially!)- Keith Herne
+
+## 8.3 Thanks
+
+Thanks to the assessors for their feedback and guidance. Thanks to my family for their support and patience.
