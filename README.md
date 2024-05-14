@@ -4,7 +4,7 @@ Bootstrapped using the Restaurantly website template available from <https://boo
 
 Edited in the Cross Platform Cloud IDE Gitpod <https://www.gitpod.io/>
 
-![Screenshot](static/img/README/multi-mockup.jpg "Homepage across many sizes using the Multi Device Mockup")
+![Screenshot](static/media/README/multi-mockup.jpg "Homepage across many sizes using the Multi Device Mockup")
 
 ---------------
 
@@ -75,11 +75,11 @@ Also with the bootstrap website being so advanced it actually made the process a
 
 This flowchart was created to show a simplified version of the main pages involved in the project
 
-![Screenshot](static/img/README/smittys_flowchart.png "Flowchart plan of the website layout")
+![Screenshot](static/media/README/smittys_flowchart.png "Flowchart plan of the website layout")
 
 Wireframe
 
-![Screenshot](static/img/README/wireframe1.jpg "Initial wireframe of mobile design")
+![Screenshot](static/media/README/wireframe1.jpg "Initial wireframe of mobile design")
 
 #### 2.2 User Stories
 
@@ -144,43 +144,43 @@ The navbar appears on all pages.
 
 The logo can be clicked on to return to the homepage:
 
-![Screenshot](static/img/README/nav_logo.jpg "Main page hero logo")
+![Screenshot](static/media/README/nav_logo.jpg "Main page hero logo")
 
 This part of the webpage shows two buttons that change depending on whether the user is logged in or not.
 
 This is the page in its default position. Before logging in, the user can either choose to log in or sign up:
 
-![Screenshot](static/img/README/homepage_start.jpg "Main page hero when not logged in")
+![Screenshot](static/media/README/homepage_start.jpg "Main page hero when not logged in")
 
 And this is the page after logging in, the user can now access the "Book a Table" page or choose to log out:
 
-![Screenshot](static/img/README/homepage_start_inlogged.jpg "Main page hero when logged in")
+![Screenshot](static/media/README/homepage_start_inlogged.jpg "Main page hero when logged in")
 
 ##### Links on main page
 
 The navbar links can be clicked on to jump straight to the sections or the user can just scroll downwards
 
 How to Book:
-![Screenshot](static/img/README/howtobook_navbar.jpg "How to book section of main page")
+![Screenshot](static/media/README/howtobook_navbar.jpg "How to book section of main page")
 
 Menu:
-![Screenshot](static/img/README/menu_navbar.jpg "Menu section of the main page")
+![Screenshot](static/media/README/menu_navbar.jpg "Menu section of the main page")
 
 Drinks:
-![Screenshot](static/img/README/drinks_navbar.jpg "Drinks section of the main page")
+![Screenshot](static/media/README/drinks_navbar.jpg "Drinks section of the main page")
 
 Events:
-![Screenshot](static/img/README/events_navbar.jpg "Events section of the main page")
+![Screenshot](static/media/README/events_navbar.jpg "Events section of the main page")
 
 The Gallery:
-![Screenshot](static/img/README/gallery_navbar.jpg "Gallery section of the main page")
+![Screenshot](static/media/README/gallery_navbar.jpg "Gallery section of the main page")
 
 Contact Us:
-![Screenshot](static/img/README/contactus_navbar.jpg "Contact section of the main page")
+![Screenshot](static/media/README/contactus_navbar.jpg "Contact section of the main page")
 
 NavBar on mobile sizes:
 When screens are reduced, a dropdown menu replaces the list of homepage links and also at the very top, only the logged in status is shown
-![Screenshot](static/img/README/navbar_mobile.jpg "Navbar links related to homepage replaced by dropdown and only logged in status is shown")
+![Screenshot](static/media/README/navbar_mobile.jpg "Navbar links related to homepage replaced by dropdown and only logged in status is shown")
 
 ### Other html pages
 
@@ -188,13 +188,13 @@ When screens are reduced, a dropdown menu replaces the list of homepage links an
 
 This page is accessed through the "Sign Up" button and then the aim was that upon entering the nesessary details, the user would have their details registered to the admin part of django and then the user would be logged in(see bugs):
 
-![Screenshot](static/img/README/sign_up_page.jpg "Sign in page")
+![Screenshot](static/media/README/sign_up_page.jpg "Sign in page")
 
 ##### Log in page
 
 The aim here was that this should have been accessed through the "Log In" button and then entering a previously registered email address and password, the user would be logged in(see bugs):
 
-![Screenshot](static/img/README/log_in_page.jpg "Log in page")
+![Screenshot](static/media/README/log_in_page.jpg "Log in page")
 
 ##### Log out page
 
@@ -212,7 +212,7 @@ Here a logged in user can create a new booking or they can also see, edit or del
 
 There are pop up messages that inform the user. The can also be closed.
 
-![Screenshot](static/img/README/msgs.jpg "Message pop up with closable icon")
+![Screenshot](static/media/README/msgs.jpg "Message pop up with closable icon")
 
 
 #### 3.2 Log in details
@@ -286,9 +286,9 @@ A "login" user form that checks username and password
 
 The following are the entity relationship diagrams for the Users and the Bookings models:
 
-![Screenshot](static/img/README/users_rel.jpg "Users entity relationship diagram")
+![Screenshot](static/media/README/users_rel.jpg "Users entity relationship diagram")
 
-![Screenshot](static/img/README/bookings_rel.jpg "Bookings entity relationship diagram")
+![Screenshot](static/media/README/bookings_rel.jpg "Bookings entity relationship diagram")
 
 ----------
 
@@ -335,9 +335,9 @@ The following are the entity relationship diagrams for the Users and the Booking
 
 Lighthouse results in desktop and then mobile formats:
 
-![Screenshot](static/img/README/lighthouse_desktop.jpg "test results from lighthouse")
+![Screenshot](static/media/README/lighthouse_desktop.jpg "test results from lighthouse")
 
-![Screenshot](static/img/README/lighthouse_mobile.jpg "test results from lighthouse")
+![Screenshot](static/media/README/lighthouse_mobile.jpg "test results from lighthouse")
 
 -------------
 
@@ -390,11 +390,11 @@ To deploy in Github, you'll need to do the following things once logged in:
 - Click on Settings
 - Click on Pages
 
-![Screenshot from github's "settings" page](static/img/README/github_deployment_one.jpg "Github deployment ettings and pages")
+![Screenshot from github's "settings" page](static/media/README/github_deployment_one.jpg "Github deployment ettings and pages")
 
 - Under Source, select "Deploy from a branch"
 
-![Screenshot from github's "pages" page](static/img/README/github_deployment_two.jpg "Choose branch")
+![Screenshot from github's "pages" page](static/media/README/github_deployment_two.jpg "Choose branch")
 
 - Under Branch, make sure your branch is set to "main" and then that the "/(root)" is selected
 - Save
@@ -408,18 +408,18 @@ To deploy in Heroku, you'll need to do the following things once logged in:
 - Click on the "New" icon on the right-hand side of the page
 - Choose "Create new app"
 
-![Screenshot from the Heroku main page](static/img/README/heroku_deploy_one.jpg "Heroku create new app")
+![Screenshot from the Heroku main page](static/media/README/heroku_deploy_one.jpg "Heroku create new app")
 
 - Enter a name for your app
 - Choose your region (USA or Europe)
 - Click on "Create app"
 
-![Screenshot from the Heroku create app page](static/img/README/heroku_deploy_two.jpg "Heroku enter app name")
+![Screenshot from the Heroku create app page](static/media/README/heroku_deploy_two.jpg "Heroku enter app name")
 
 - Click to go to Settings
 - Click to open the Config Vars
 
-![Screenshot from the Heroku settings page](static/img/README/heroku_deploy_three.jpg "Github deployment ettings and pages")
+![Screenshot from the Heroku settings page](static/media/README/heroku_deploy_three.jpg "Github deployment ettings and pages")
 
   Add your specific config vars here:
 
@@ -428,7 +428,7 @@ To deploy in Heroku, you'll need to do the following things once logged in:
 - DISABLE_COLLECTSTAIC (only used during development)
 - SECRET_KEY
 
-![Screenshot from the Heroku config vars section](static/img/README/heroku_deploy_four.jpg "Github deployment settings and pages")
+![Screenshot from the Heroku config vars section](static/media/README/heroku_deploy_four.jpg "Github deployment settings and pages")
 
 The final part to the deployment is to connect your Heroku app to Github:
 
@@ -436,7 +436,7 @@ The final part to the deployment is to connect your Heroku app to Github:
 - Select the "Deploy to Github" option in the middle
 - Make sure it is connected as shown in this final image
 
-![Screenshot from the Heroku deploy section](static/img/README/heroku_deployment_final.jpg "deployed")
+![Screenshot from the Heroku deploy section](static/media/README/heroku_deployment_final.jpg "deployed")
 
 Further information can be found on the Heroku site [here](https://devcenter.heroku.com/articles/git)
 
