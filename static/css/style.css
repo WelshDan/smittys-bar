@@ -1057,12 +1057,8 @@ section {
     border: none;
 }
 
-.signup .section-title {
-    padding-bottom: 150px;
-}
-
-.login .section-title {
-    padding-bottom: 170px;
+.padding {
+    padding-bottom: 250px;
 }
 
 /*----- Book a Table Page -----*/
