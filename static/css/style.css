@@ -28,7 +28,7 @@ h6 {
 .alert {
     position: sticky;
     left: 50%;
-    top: 120px;
+    top: 150px;
     transform: translate(-50%, -50%);
 
 
@@ -344,85 +344,6 @@ h6 {
     margin-top: 30px;
 }
 
-#hero .btn-login,
-#hero .btn-signup {
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    transition: 0.3s;
-    line-height: 1;
-    color: white;
-    border: 2px solid #cda45e;
-}
-
-#hero .btn-login:hover,
-#hero .btn-signup:hover {
-    background: #cda45e;
-    color: #fff;
-}
-
-#hero .btn-signup {
-    margin-left: 15px;
-}
-
-@media (min-width: 1024px) {
-    #hero {
-        background-attachment: fixed;
-    }
-}
-
-@media (max-height: 500px) {
-    #hero {
-        height: auto;
-    }
-
-    #hero .container {
-        padding-top: 130px;
-        padding-bottom: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    #hero h1 {
-        font-size: 28px;
-        line-height: 36px;
-    }
-
-    #hero h2 {
-        font-size: 18px;
-        line-height: 24px;
-    }
-}
-
-@-webkit-keyframes pulsate-btn {
-    0% {
-        transform: scale(0.6, 0.6);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1, 1);
-        opacity: 0;
-    }
-}
-
-@keyframes pulsate-btn {
-    0% {
-        transform: scale(0.6, 0.6);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1, 1);
-        opacity: 0;
-    }
-}
-
 /*----- Sections general -----*/
 section {
     padding: 60px 0;
@@ -439,6 +360,7 @@ section {
 
 .section-title {
     padding-bottom: 40px;
+    padding-top: 60px;
 }
 
 .section-title h2 {
@@ -1054,11 +976,37 @@ section {
 
 /*----- Buttons -----*/
 
-.btn-create,
-.btn-booktable,
+.btn-login,
 .btn-signup,
+.btn-booktable,
 .btn-logout,
-.btn-login {
+.btn-create {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: 0.3s;
+    line-height: 1;
+    background-color: #000000;
+    color: white;
+    border: 2px solid #cda45e;
+}
+
+.btn-login:hover,
+.btn-signup:hover,
+.btn-booktable:hover,
+.btn-logout:hover,
+.btn-create:hover {
+    background: #cda45e;
+    color: #fff;
+}
+
+.btn-edit,
+.btn-delete {
     margin: 0 0 0 15px;
     border: 2px solid #cda45e;
     color: #000000;
@@ -1072,21 +1020,20 @@ section {
     transition: 0.3s;
 }
 
-.btn-create:hover,
-.btn-booktable:hover,
-.btn-signup:hover,
-.btn-logout:hover,
-.btn-login:hover {
-    background: #cda45e;
+.btn-edit:hover {
+    background: #FFFF00;
+    color: #000000;
+}
+
+.btn-delete:hover {
+    background: #FF0000;
     color: #fff;
 }
 
 @media (max-width: 992px) {
-    .btn-create,
-    .btn-booktable,
-    .btn-signup,
-    .btn-logout,
-    .btn-login {
+
+    .btn-edit,
+    .btn-delete {
         margin: 0 15px 0 0;
         padding: 8px 20px;
     }
@@ -1110,162 +1057,12 @@ section {
     border: none;
 }
 
-.booktable .bt-booktable,
-.logout .bt-logout,
-.signup .bt-signup,
-.login .bt-login {
-    position: absolute;
-    left: 10px;
+.signup .section-title {
+    padding-bottom: 150px;
 }
 
-
-.login .btn-login,
-.login .btn-signup,
-.login .btn-booktable {
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    transition: 0.3s;
-    line-height: 1;
-    color: white;
-    border: 2px solid #cda45e;
-}
-
-.login .btn-login:hover,
-.login .btn-signup:hover,
-.login .btn-booktable:hover {
-    background: #cda45e;
-    color: #fff;
-}
-
-
-/*----- Sign up & Log out Page -----*/
-.signup .section-title,
-.logout .section-title {
-    padding-top: 60px;
-}
-
-.signup .bt-signup,
-.logout .bt-logout {
-    position: absolute;
-    left: 10px;
-}
-
-.signup .signup-form,
-.logout .logout-form {
-    width: 100%;
-}
-
-.signup .signup-form .form-group,
-.logout .logout-form .form-group {
-    padding-bottom: 8px;
-}
-
-.signup .signup-form .loading,
-.logout .logout-form .loading {
-    display: none;
-    text-align: center;
-    padding: 15px;
-}
-
-.signup .signup-form .loading:before,
-.logout .logout-form .loading:before {
-    content: "";
-    display: inline-block;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px -6px 0;
-    border: 3px solid #cda45e;
-    border-top-color: #1a1814;
-    animation: animate-loading 1s linear infinite;
-}
-
-.signup .signup-form input,
-.signup .signup-form textarea,
-.logout .logout-form input,
-.logout .logout-form textarea {
-    border-radius: 0;
-    box-shadow: none;
-    font-size: 14px;
-    background: #0c0b09;
-    border-color: #625b4b;
-    color: white;
-}
-
-.signup .signup-form input::-moz-placeholder,
-.signup .signup-form textarea::-moz-placeholder,
-.logout .logout-form input::-moz-placeholder,
-.logout .logout-form textarea::-moz-placeholder {
-    color: #a49b89;
-}
-
-.signup .signup-form input::placeholder,
-.signup .signup-form textarea::placeholder,
-.logout .logout-form input::placeholder,
-.logout .logout-form textarea::placeholder {
-    color: #a49b89;
-}
-
-.signup .signup-form input:focus,
-.signup .signup-form textarea:focus,
-.logout .logout-form input:focus,
-.logout .logout-form textarea:focus {
-    border-color: #cda45e;
-}
-
-.signup .signup-form input,
-.logout .logout-form input {
-    height: 44px;
-}
-
-.signup .signup-form textarea,
-.logout .logout-form textarea {
-    padding: 10px 12px;
-}
-
-.signup .signup-form button[type=submit],
-.logout .logout-form button[type=submit] {
-    background: #cda45e;
-    border: 0;
-    padding: 10px 35px;
-    color: #fff;
-    transition: 0.4s;
-    border-radius: 50px;
-}
-
-.signup .signup-form button[type=submit]:hover,
-.logout .logout-form button[type=submit]:hover {
-    background: #d3af71;
-}
-
-.signup .btn-login,
-.signup .btn-signup,
-.signup .btn-booktable,
-.logout .btn-logout {
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    transition: 0.3s;
-    line-height: 1;
-    color: white;
-    border: 2px solid #cda45e;
-}
-
-.login .btn-login:hover,
-.login .btn-signup:hover,
-.login .btn-booktable:hover,
-.login .btn-logout:hover {
-    background: #cda45e;
-    color: #fff;
+.login .section-title {
+    padding-bottom: 170px;
 }
 
 /*----- Book a Table Page -----*/
@@ -1316,38 +1113,3 @@ section {
     position: relative;
 }
 
-/*----- Booktable Edit and Delete buttons -----*/
-
-.btn-edit,
-.btn-delete {
-    margin: 0 0 0 15px;
-    border: 2px solid #cda45e;
-    color: #000000;
-    border-radius: 50px;
-    padding: 8px 25px;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-.btn-edit:hover {
-    background: #FFFF00;
-    color: #000000;
-}
-
-.btn-delete:hover {
-    background: #FF0000;
-    color: #fff;
-}
-
-@media (max-width: 992px) {
-
-    .btn-edit,
-    .btn-delete {
-        margin: 0 15px 0 0;
-        padding: 8px 20px;
-    }
-}

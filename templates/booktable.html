@@ -20,8 +20,8 @@
                                 <th>Table Booked</th>
                                 <th>Date Booked</th>
                                 <th>Time booked</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Change</th>
+                                <th>Cancel</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,11 +32,11 @@
                                 <td>{{ booking.date }}</td>
                                 <td>{{ booking.start_time }} to {{ booking.end_time }}</td>
                                 <td><a href="{% url 'edit_reservation' booking.booking_id %}">
-                                        <button>Edit</button>
+                                        <button>Change</button>
                                     </a>
                                 </td>
                                 <td><a href="{% url 'delete_reservation' booking.booking_id %}">
-                                        <button>Delete</button>
+                                        <button>Cancel</button>
                                     </a>
                                 </td>
                             </tr>
@@ -66,8 +66,8 @@
                                 <th>Table Booked</th>
                                 <th>Date Booked</th>
                                 <th>Time booked</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Change</th>
+                                <th>Cancel</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,11 +78,11 @@
                                 <td>{{ booking.date }}</td>
                                 <td>{{ booking.start_time }} to {{ booking.end_time }}</td>
                                 <td><a href="{% url 'edit_reservation' booking.booking_id %}">
-                                        <button class="btn-edit">Edit</button>
+                                        <button class="btn-edit">Change</button>
                                     </a>
                                 </td>
                                 <td><a href="{% url 'delete_reservation' booking.booking_id %}">
-                                        <button class="btn-delete">Delete</button>
+                                        <button class="btn-delete">Cancel</button>
                                     </a>
                                 </td>
                             </tr>

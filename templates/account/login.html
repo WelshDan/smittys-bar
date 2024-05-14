@@ -45,7 +45,7 @@
                 <form action="{% url 'account_login' %}" method="POST" class="form-control" data-aos="fade-up" data-aos-delay="100">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button class="btn btn-login" type="submit">{% trans "Log In" %}</button>
+                    <button class="btn-login" type="submit">{% trans "Log In" %}</button>
                 </form>
                 <div class="section-title">
                     <div class="signup-title">
