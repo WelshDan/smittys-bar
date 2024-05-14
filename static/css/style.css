@@ -24,10 +24,15 @@ h6 {
     font-family: "Playfair Display", serif;
 }
 
-#messages {
+/*----- Messages -----*/
+.alert {
     position: sticky;
-    top: 150px;
-    z-index: 999;
+    left: 50%;
+    top: 120px;
+    transform: translate(-50%, -50%);
+
+
+    z-index: 99999;
 }
 
 /*----- Top Bar -----*/
@@ -88,8 +93,6 @@ h6 {
 #header .logo img {
     max-height: 40px;
 }
-
-
 
 /*----- Nav menu -----*/
 /*Desktop Navigation*/
@@ -1416,6 +1419,11 @@ section {
     border: none;
 }
 
+.floorplan-img {
+    height: auto;
+    max-width: 100%;
+}
+
 
 /*----- Booktable Edit and Delete buttons -----*/
 
@@ -1423,7 +1431,7 @@ section {
 .btn-delete {
     margin: 0 0 0 15px;
     border: 2px solid #cda45e;
-    color: #fff;
+    color: #000000;
     border-radius: 50px;
     padding: 8px 25px;
     text-transform: uppercase;

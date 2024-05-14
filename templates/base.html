@@ -50,102 +50,100 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-cente">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+            <h1 class="logo me-auto me-lg-0">
+                <a href="{% url 'index' %}" class="scrollto">Smitty's</a>
+            </h1>
+        </div>
+        <!-- .navbar -->
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li class="nav-item dropdown d-lg-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Home
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'index' %}#hero">Home</a></li>
+                        <li><a class="dropdown-item" href="{% url 'index' %}#howtobook">How to book</a></li>
+                        <li><a class="dropdown-item" href="{% url 'index' %}#menu">Menu</a></li>
+                        <li><a class="dropdown-item" href="{% url 'index' %}#drinks">Drinks</a></li>
+                        <li><a class="dropdown-item" href="{% url 'index' %}#events">Events</a></li>
+                        <li><a class="dropdown-item" href="{% url 'index' %}#gallery">Gallery</a></li>
+                        <li><a class="dropdown-item" href="{% url 'index' %}#contact">Contact</a></li>
+                
+                
+                    </ul>
+                </li>
+                <li>
+                    <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#hero">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#howtobook">How to Book</a>
+                </li>
+                <li>
+                    <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#menu">Menu</a>
+                </li>
+                <li>
+                    <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#drinks">Drinks</a>
+                </li>
+                <li>
+                    <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#events">Events</a>
+                </li>
+                <li>
+                    <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#gallery">Gallery</a>
+                </li>
+                <li>
+                    <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#contact">Contact</a>
+                </li>
+                <!-- Log In or Log Out button -->
 
-            <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
-                <h1 class="logo me-auto me-lg-0">
-                    <a href="{% url 'index' %}" class="scrollto">Smitty's</a>
-                </h1>
-            </div>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar order-last order-lg-0">
-                <ul>
-                    <li class="nav-item dropdown d-lg-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Home
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'index' %}#hero">Home</a></li>
-                            <li><a class="dropdown-item" href="{% url 'index' %}#howtobook">How to book</a></li>
-                            <li><a class="dropdown-item" href="{% url 'index' %}#menu">Menu</a></li>
-                            <li><a class="dropdown-item" href="{% url 'index' %}#drinks">Drinks</a></li>
-                            <li><a class="dropdown-item" href="{% url 'index' %}#events">Events</a></li>
-                            <li><a class="dropdown-item" href="{% url 'index' %}#gallery">Gallery</a></li>
-                            <li><a class="dropdown-item" href="{% url 'index' %}#contact">Contact</a></li>
-                    
-                    
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#hero">Home</a>
-                    </li>
-                    <li>
-                        <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#howtobook">How to Book</a>
-                    </li>
-                    <li>
-                        <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#menu">Menu</a>
-                    </li>
-                    <li>
-                        <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#drinks">Drinks</a>
-                    </li>
-                    <li>
-                        <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#events">Events</a>
-                    </li>
-                    <li>
-                        <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#gallery">Gallery</a>
-                    </li>
-                    <li>
-                        <a class="nav-link d-none d-lg-block" href="{% url 'index' %}#contact">Contact</a>
-                    </li>
-                    <!-- Log In or Log Out button -->
-
-                    {% if request.user.is_authenticated %}
-                    <li>
-                        <a class="nav-link {% if request.path == booktable_url %}active{% endif %}"
-                            class="btn-booktable animated fadeInUp scrollto" aria-current="page"
-                            href="{% url 'reserve_table' %}">Book Table</a>
-                    </li>
-                    <li>
-                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
-                            class="btn-logout animated fadeInUp scrollto" aria-current="page"
-                            href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
-                            class="btn-signup animated fadeInUp scrollto" aria-current="page"
-                            href="{% url 'account_signup' %}">Sign Up</a>
-                    </li>
-                    <li>
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}"
-                            class="btn-login animated fadeInUp scrollto" aria-current="page"
-                            href="{% url 'account_login' %}">Login</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
+                {% if request.user.is_authenticated %}
+                <li>
+                    <a class="nav-link {% if request.path == booktable_url %}active{% endif %}"
+                        class="btn-booktable animated fadeInUp scrollto" aria-current="page"
+                        href="{% url 'reserve_table' %}">Book Table</a>
+                </li>
+                <li>
+                    <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
+                        class="btn-logout animated fadeInUp scrollto" aria-current="page"
+                        href="{% url 'account_logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
+                        class="btn-signup animated fadeInUp scrollto" aria-current="page"
+                        href="{% url 'account_signup' %}">Sign Up</a>
+                </li>
+                <li>
+                    <a class="nav-link {% if request.path == login_url %}active{% endif %}"
+                        class="btn-login animated fadeInUp scrollto" aria-current="page"
+                        href="{% url 'account_login' %}">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
     </header>
 
     <main>
 
         <!-- ======= Error Messages ======= -->
 
-    <div id="messages">
-        <div class="row">
-            <div class="col-m8- offset-md-2">
-                {% for message in messages %}
-                <div class"alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
+    
 
         {% block content %}
         <!-- Content Goes here -->

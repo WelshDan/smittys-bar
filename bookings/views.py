@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Reservation
 from .forms import TableBookingForm
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 @login_required
@@ -18,6 +19,7 @@ def reserve_table(request):
         if form.is_valid():
             form.instance.username = request.user
             form.save()
+            messages.success(request, "Your booking was successful")
             return HttpResponseRedirect('/booktable')
     else:
         form = TableBookingForm()
@@ -37,6 +39,7 @@ def edit_reservation(request, booking_id):
         if form.is_valid():
                 form.instance.username = request.user
                 form.save()
+                messages.info(request, "You have amended your booking")
                 return redirect('reserve_table')
     return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
 
@@ -45,6 +48,7 @@ def edit_reservation(request, booking_id):
 def delete_reservation(request, booking_id):
         booking = Reservation.objects.get(pk=booking_id)
         booking.delete()
+        messages.success(request, "Your booking was deleted")
         return redirect('reserve_table')
 
 
