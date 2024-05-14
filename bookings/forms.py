@@ -19,7 +19,7 @@ class TableBookingForm(forms.ModelForm):
         widget = {
             'table_number': forms.Select(attrs={'class': 'form-control'}),
             'date': forms.Select(attrs={'class': 'form-control'}),
-            'start_time': forms.Select(attrs={'class': 'form-control', 'step': 3600}),
+            'start_time': forms.Select(attrs={'class': 'form-control'}),
             'end_time': forms.Select(attrs={'class': 'form-control'}),
         }
 
