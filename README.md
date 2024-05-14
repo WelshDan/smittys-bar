@@ -361,6 +361,7 @@ Lighthouse results in desktop and then mobile formats:
 
 - Poor styling of login and signup forms
 - Active bookings are not set to is_active=False on the passing of booking date/time.
+- Messages are only shown in one colour
 
 **Missing Parts & Issues**
 
