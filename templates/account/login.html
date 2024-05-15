@@ -10,7 +10,7 @@
 {% if user.is_authenticated %}
 
 <section id="login" class="login">
-    <div class="container section" data-aos="fade-up">
+    <div class="container section">
         <div class="section-title">
             <h2>You are logged in</h2>
             <p>Click to book a table</p>
@@ -31,7 +31,7 @@
 
 <!-- ======= Log in Section ======= -->
 <section id="login" class="login">
-    <div class="container section" data-aos="fade-up">
+    <div class="container section">
         <div class="row">
             <div class="col-md-8 mt-3 offset-md-2">
                 <div class="section-title">
@@ -42,7 +42,7 @@
         </div>
         <div class="row">
             <div class="col-md-8 mt-3 offset-md-2">
-                <form action="{% url 'account_login' %}" method="POST" class="form-control" data-aos="fade-up" data-aos-delay="100">
+                <form action="{% url 'account_login' %}" method="POST" class="form-control">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button class="btn-login" type="submit">{% trans "Log In" %}</button>

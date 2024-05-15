@@ -8,15 +8,14 @@
 
 <!-- ======= Sign Up Section ======= -->
 <section id="signup" class="signup">
-  <div class="container section aos-init aos-animate" data-aos="fade-up">
+  <div class="container section">
     <div class="section-title">
       <h2>Sign Up</h2>
       <p>Please enter your details</p>
     </div>
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2">
-        <form action="{% url 'account_signup' %}" method="POST" id="signup_form" role="form" class="form-control aos-init aos animate"
-          data-aos="fade-up" data-aos-delay="100">
+        <form action="{% url 'account_signup' %}" method="POST" id="signup_form" role="form" class="form-control">
           {% csrf_token %}
           {{ form.as_p }}
           <div class="btns">
