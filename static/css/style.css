@@ -604,7 +604,7 @@ section {
 
 /*----- Events section -----*/
 .events {
-    background: url(../media/images/events-bg.jpg) center center no-repeat;
+    background: url(../media/events-bg.jpg) center center no-repeat;
     background-size: cover;
     position: relative;
 }
