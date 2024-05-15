@@ -1,8 +1,6 @@
-# Smitty's Bar & Restaurant
+# [Smitty's Bar](https://smittys-bar-e7b5536cbae9.herokuapp.com/)
 
-Bootstrapped using the Restaurantly website template available from <https://bootstrapmade.com/restaurantly-restaurant-template/>
-
-Edited in the Cross Platform Cloud IDE Gitpod <https://www.gitpod.io/>
+The Smitty’s Bar & Restaurant website is a website for a fictitious bar that contains a login system and a booking system to store reservations. I designed the pub layout myself. Users can sign up, log in, book a table.
 
 ![Screenshot](static/media/README/multi-mockup.jpg "Homepage across many sizes using the Multi Device Mockup")
 
@@ -45,20 +43,24 @@ Edited in the Cross Platform Cloud IDE Gitpod <https://www.gitpod.io/>
 
 #### 1.1 Brief introduction
 
-The Smitty’s Bar & Restaurant website is a website for a fictitious bar that contains a login system and a booking system to store reservations. I designed the pub layout myself. Users can sign up, log in, book a table and look around at all that this pub has to offer.
+The Smitty’s Bar & Restaurant website is a website for a fictitious bar that contains a login system and a booking system to store reservations. I designed the pub layout myself. Users can sign up, log in, book a table.
 
 #### 1.2 Basic mechanics
 
-The website was created using the following:
+This was created using the following:
+
+- [Django Python framework](https://www.djangoproject.com) as the progaming language
+- [Code Institutes own database](https://dbs.ci-dbs.net/) which replaced [ElephantSQL](https://www.elephantsql.com/) during the project
+- [Heroku](https://www.heroku.com) or the deployment of the website
+- Edited in the Cross Platform Cloud IDE Gitpod <https://www.gitpod.io/> which replaced CodeAnywhere during the project
+
+Some stylings and layout was taken from this website template:
 
 - [Bootstrap framework Restaurantly](https://bootstrapmade.com/restaurantly-restaurant-template/) for the framework of the website
-- [Django Python framework](https://www.djangoproject.com) as the progaming language
-- [ElephantSQL](https://www.elephantsql.com/) for the connection to the database
-- [Heroku](https://www.heroku.com) or the deployment of the website
 
 #### 1.3 Link to the website
 
-The website can be found [here](https://smittys-bd7d75f32e46.herokuapp.com/)
+The link to the deployed Smitty's Bar can be found [here](https://smittys-bar-e7b5536cbae9.herokuapp.com/)
 
 ----------------
 
@@ -69,7 +71,7 @@ The website can be found [here](https://smittys-bd7d75f32e46.herokuapp.com/)
 **Ideas**
 
 The thought process started with the suggestion of creating a booking system. I have experience of pub culture and so by being able to translate this idea into something I could relate to made the experience a lot more interesting, although maybe the attention to the visuals ended up being a lot greater than was needed. More attention to the functionality would’ve made this project a lot more enjoyable as I was progressing through.
-Also with the bootstrap website being so advanced it actually made the process a lot harder. The more a customised, the more it created errors and bugs.
+Also by starting with a bootstrap website, it made the process a lot harder as the one-page website could not be compatible with multiple pages so a new project was created late in the process.
 
 **UX Design**
 
@@ -119,11 +121,11 @@ The website has 4 navigational HTML pages:
 | 'index' Home             | Loading homepage, 'logging out' |
 | 'login' Login            |   Clicking on 'Log in' button   |
 | 'signup' Sign Up         |  Clicking on 'Sign up' button   |
-| 'reserve_table'Booking   | Clicking on 'Book a table' button |
+| 'reserve_table' Booking   | Clicking on 'Book a table' button |
 
 #### Homepage start up screen
 
-This is the first screen upon opening the website. The homepage can also be accessed at any time by clicking on "SMITTY'S BAR & RESTAURANT" located to the left of the the links. It can be scrolled down and also has working links found across the top of the header.
+This is the first screen upon opening the website. The homepage can also be accessed at any time by clicking on "SMITTY'S" located to the left of the the links. It can be scrolled down and also has working links found across the top of the header.
 
 These links are:
 
@@ -156,7 +158,7 @@ And this is the page after logging in, the user can now access the "Book a Table
 
 ![Screenshot](static/media/README/homepage_start_inlogged.jpg "Main page hero when logged in")
 
-##### Links on main page
+##### Links on homepage
 
 The navbar links can be clicked on to jump straight to the sections or the user can just scroll downwards
 
@@ -186,13 +188,13 @@ When screens are reduced, a dropdown menu replaces the list of homepage links an
 
 ##### Sign in page
 
-This page is accessed through the "Sign Up" button and then the aim was that upon entering the nesessary details, the user would have their details registered to the admin part of django and then the user would be logged in(see bugs):
+This page is accessed through the "Sign Up" button and then the user can fill in the login details.
 
 ![Screenshot](static/media/README/sign_up_page.jpg "Sign in page")
 
 ##### Log in page
 
-The aim here was that this should have been accessed through the "Log In" button and then entering a previously registered email address and password, the user would be logged in(see bugs):
+When a user enters their username and password, they are returned to the homepage and can now make, check, edit and delete bookings.
 
 ![Screenshot](static/media/README/log_in_page.jpg "Log in page")
 
@@ -206,25 +208,31 @@ This is the screen which asks the user if they really do want to log out.
 
 Here a logged in user can create a new booking or they can also see, edit or delete their active bookings via the get_booking function.
 
-![Screenshot] "Book a table page")
+![Screenshot](static/media/README/booktable_your_reservations.jpg  "Book a table page - Your reservations list")
+
+![Screenshot](static/media/README/booktable_booking_form.jpg  "Book a table page - Book a table form")
 
 ##### Messages
 
-There are pop up messages that inform the user. The can also be closed.
+There are pop up messages that inform the user of certain changes. This can be closed.
 
 ![Screenshot](static/media/README/msgs.jpg "Message pop up with closable icon")
 
 
 #### 3.2 Log in details
 
-Superuser:
+- Superuser:
+
 username: Admin
+
 email: admin@gmail.com
+
 Password: admin
 
+- Test Users:
 
-Test User:
 Nia / nia@gmail.com / niapassword
+
 Sam / sam@gmail.com / sampassword
 
 --------
@@ -360,8 +368,10 @@ Lighthouse results in desktop and then mobile formats:
 **Bugs**
 
 - Poor styling of login and signup forms
+- Poor styling of booktable form
 - Active bookings are not set to is_active=False on the passing of booking date/time.
 - Messages are only shown in one colour
+- Your Reservations edit adn delete buttons do not react to smaller screens
 
 **Missing Parts & Issues**
 
