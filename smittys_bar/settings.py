@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = [
-                '8000-welshdan-smittysbar-7rhe328gb7a.ws-eu111.gitpod.io',
+                '8000-welshdan-smittysbar-8dbkmoy0e5m.ws-eu115.gitpod.io',
                 '.herokuapp.com'
                 ]
 
@@ -67,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 SITE_ID = 1
@@ -175,7 +177,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-welshdan-smittysbar-7rhe328gb7a.ws-eu111.gitpod.io',
+    'https://8000-welshdan-smittysbar-8dbkmoy0e5m.ws-eu115.gitpod.io',
     'https://smittys-bar-e7b5536cbae9.herokuapp.com'
 ]
 
