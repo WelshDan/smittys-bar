@@ -16,7 +16,7 @@
             Your table was updated successfully!
 
             {% else %}
-            <form method="post">
+            <form method="post" class="form-control">
                 {% csrf_token %}
 
                 {{ form.as_p }}

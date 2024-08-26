@@ -950,6 +950,8 @@ section {
 /*----- Booktable, Logout, Signup & Login Pages - General -----*/
 .floorplan,
 .event_information,
+.edit_reservation,
+.active_bookings,
 .reserved,
 .booktable,
 .logout,
@@ -974,10 +976,11 @@ section {
     padding-bottom: 30vh;
 }
 
-/*----- Book a Table Page -----*/
+/*----- Book a Table & Edit a Reservation Pages -----*/
 
-.booktable {
-    padding-top: 120px;
+.booktable,
+.edit_reservation {
+    padding-top: 80px;
 }
 
 .booktable .event-table {
@@ -999,6 +1002,7 @@ section {
     color: #fff;
 }
 
+.edit_reservation .form-control,
 .reserved .form-control {
     color: #fff;
     background-color: #000000;
@@ -1021,4 +1025,3 @@ section {
     border: 4px solid rgba(255, 255, 255, 0.2);
     position: relative;
 }
-

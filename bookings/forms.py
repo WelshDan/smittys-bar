@@ -3,6 +3,7 @@ from bookings.models import Reservation
 from customers.models import User
 from .widgets import  DatePickerInput, TimePickerInput
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 
 class TableBookingForm(forms.ModelForm):
@@ -29,6 +30,7 @@ class TableBookingForm(forms.ModelForm):
         date = cleaned_data.get('date')
         start_time = cleaned_data.get('start_time')
         end_time = cleaned_data.get('end_time')
+        current_time = timezone.now()
 
         instance = self.instance
 
@@ -39,6 +41,9 @@ class TableBookingForm(forms.ModelForm):
             end_time__gt=start_time,
             active_booking=True
         )
+
+        if date < current_time:
+            raise ValidationError("That time or date has passed. Please try again")
         
         if instance and instance.pk:
             check_bookings = check_bookings.exclude(pk=instance.pk)
