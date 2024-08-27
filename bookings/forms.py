@@ -42,13 +42,19 @@ class TableBookingForm(forms.ModelForm):
             active_booking=True
         )
 
-        if date < current_time:
-            raise ValidationError("That time or date has passed. Please try again")
-        
         if instance and instance.pk:
             check_bookings = check_bookings.exclude(pk=instance.pk)
 
         if check_bookings.exists():
-            raise ValidationError("Double booked! The table is booked for that time on that date")
+            raise ValidationError("Double booked! Sorry, that table is booked for that time on that date")
+
+        date_error = date < current_time.date()
+        time_error = end_time <= start_time
+
+        if date_error:
+            raise ValidationError("Bookings cannot be made for past dates")
+
+        if time_error:
+            raise ValidationError("Please ensure your start time if before your end time of booking")
 
         return cleaned_data

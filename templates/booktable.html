@@ -53,6 +53,28 @@
     </section>
 
     {% elif request.user.is_authenticated %}
+    <section id="reserved" class="reserved">
+        <div class="container">
+            <div class="section-title">
+                <h2>Reservation</h2>
+                <p>Book a Table</p>
+            </div>
+            {% if submitted %}
+            Your table was booked successfully!
+    
+            {% else %}
+            {{ form.media }}
+            <form action="" method="POST" class="form-control">
+                {% csrf_token %}
+    
+                {{ form.as_p }}
+                <p>See "Your Reservations" below to change or cancel active bookings</p>
+                <button type="submit" class="btn-create animated fadeInUp scrollto">Create Booking</button>
+            </form>
+            
+            {% endif %}
+        </div>
+    </section>
     <section id="booktable" class="booktable">
         <div class="container">
             <div class="section-title">
@@ -95,28 +117,6 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="reserved" class="reserved">
-        <div class="container">
-            <div class="section-title">
-                <h2>Reservation</h2>
-                <p>Book a Table</p>
-            </div>
-            {% if submitted %}
-            Your table was booked successfully!
-
-            {% else %}
-            {{ form.media }}
-            <form action="" method="POST" class="form-control">
-                {% csrf_token %}
-
-                {{ form.as_p }}
-
-                <button type="submit" class="btn-create animated fadeInUp scrollto">Create Booking</button>
-
-            </form>
-            {% endif %}
         </div>
     </section>
     {% else %}

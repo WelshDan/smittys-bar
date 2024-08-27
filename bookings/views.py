@@ -20,7 +20,7 @@ def reserve_table(request):
             form.instance.username = request.user
             form.save()
             messages.success(request, "Your booking was successful")
-            return HttpResponseRedirect('/booktable')
+            return HttpResponseRedirect('/bookings/reserve_table/')
     else:
         form = TableBookingForm()
         if 'submitted' in request.GET:
@@ -37,10 +37,10 @@ def edit_reservation(request, booking_id):
     if request.method == "POST":
         form = TableBookingForm(request.POST, instance=booking)
         if form.is_valid():
-                form.instance.username = request.user
-                form.save()
-                messages.info(request, "You have amended your booking")
-                return redirect('reserve_table')
+            form.instance.username = request.user
+            form.save()
+            messages.info(request, "You have amended your booking")
+            return redirect('reserve_table')
     return render(request, 'edit_reservation.html', {'form':form, 'booking': booking, 'bookings':user_bookings})
 
 
