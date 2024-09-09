@@ -6,12 +6,26 @@ from .models import Reservation
 from .forms import TableBookingForm
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.utils import timezone
+from datetime import datetime
+
+
+@login_required
+def remove_old_bookings(user):
+    active_bookings = Reservation.objects.filter(username=user, active_booking=True)
+    for booking in active_bookings:
+        booking_end = datetime.combine(booking.date, booking.end_time)
+
+        if booking_end < timezone.now():
+            booking.active_booking=False
+            booking.save()
 
 
 @login_required
 def reserve_table(request):
     submitted = False
     active_booking = False
+    remove_old_bookings(request.user)
     form = TableBookingForm()
     user_bookings = Reservation.objects.filter(username=request.user, active_booking=True)
     if request.method == "POST":
@@ -31,6 +45,7 @@ def reserve_table(request):
 
 @login_required
 def edit_reservation(request, booking_id):
+    remove_old_bookings(request.user)
     user_bookings = Reservation.objects.filter(username=request.user, active_booking=True)
     booking = Reservation.objects.get(pk=booking_id)
     form = TableBookingForm(instance=booking)
@@ -54,11 +69,12 @@ def delete_reservation(request, booking_id):
 
 @login_required
 def get_bookings(request):
-        if current_user.is_superuser:
-                bookings = Reservation.objects.all()
-        else:
-                bookings = Reservation.objects.filter(user=request.user, active_booking=True)
-        return render(request, 'booktable.html', {'bookings': bookings})
+    remove_old_bookings(request.user)
+    if request.user.is_superuser:
+            bookings = Reservation.objects.all()
+    else:
+            bookings = Reservation.objects.filter(username=request.user, active_booking=True)
+    return render(request, 'booktable.html', {'bookings': bookings})
 
 
 def get_booktable(request):
