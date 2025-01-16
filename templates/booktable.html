@@ -7,206 +7,215 @@
 <body>
     {% if request.user.is_superuser %}
 
-    <section id="booktable" class="booktable">
-        <div class="container">
-            <div class="section-title">
-                <h2>All Reservations</h2>
-                <p>Here are the reservations:</p>
-                <div class="row col-lg-6 pt-4 pt-lg-0 content">
-                    <table class="table table-sm">
-                        <thead class="t-head">
-                            <tr>
-                                <th>Booking Id</th>
-                                <th>Table Booked</th>
-                                <th>Date Booked</th>
-                                <th>Time booked</th>
-                                <th>Change</th>
-                                <th>Cancel</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for booking in bookings %}
-                            <tr>
-                                <td>{{ booking.booking_id }}</td>
-                                <td>{{ booking.table_number }}</td>
-                                <td>{{ booking.date }}</td>
-                                <td>{{ booking.start_time }} to {{ booking.end_time }}</td>
-                                <td><a href="{% url 'edit_reservation' booking.booking_id %}">
-                                        <button>Change</button>
-                                    </a>
-                                </td>
-                                <td><a href="{% url 'delete_reservation' booking.booking_id %}">
-                                        <button>Cancel</button>
-                                    </a>
-                                </td>
-                            </tr>
-                            {% empty %}
-                            <tr>
-                                <td>No reservations</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+        <section id="booktable" class="booktable">
+            <div class="container">
+                <div class="section-title">
+                    <h2>All Reservations</h2>
+                    <p>Here are the reservations:</p>
+                    <div class="row col-lg-6 pt-4 pt-lg-0 content">
+                        <table class="table table-sm">
+                            <thead class="t-head">
+                                <tr>
+                                    <th>Booking Id</th>
+                                    <th>Booked By</th>
+                                    <th>Table Booked</th>
+                                    <th>Date Booked</th>
+                                    <th>Time booked</th>
+                                    <th>Change</th>
+                                    <th>Cancel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for reservation in reservations %}
+                                <tr>
+                                    <td>{{ reservation.booking_id }}</td>
+                                    <td>{{ reservation.username.username }}</td>
+                                    <td>{{ reservation.table_number }}</td>
+                                    <td>{{ reservation.date }}</td>
+                                    <td>{{ reservation.start_time }} to {{ reservation.end_time }}</td>
+                                    <td><a href="{% url 'edit_reservation' reservation.booking_id %}">
+                                            <button class="btn-edit">Change</button>
+                                        </a>
+                                    </td>
+                                    <td><a href="{% url 'delete_reservation' reservation.booking_id %}">
+                                            <button class="btn-delete">Cancel</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="7">No reservations</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     {% elif request.user.is_authenticated %}
-    <section id="reserved" class="reserved">
-        <div class="container">
-            <div class="section-title">
-                <h2>Reservation</h2>
-                <p>Book a Table</p>
+        <section id="reserved" class="reserved">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Reservation</h2>
+                    <p>Book a Table</p>
+                </div>
+                {% if submitted %}
+                Your table was booked successfully!
+        
+                {% else %}
+                {{ form.media }}
+                <form action="" method="POST" class="form-control">
+                    {% csrf_token %}
+        
+                    {{ form.as_p }}
+                    <p>See "Your Reservations" below to change or cancel active bookings</p>
+                    <button type="submit" class="btn-create animated fadeInUp scrollto">Create Booking</button>
+                </form>
+                
+                {% endif %}
             </div>
-            {% if submitted %}
-            Your table was booked successfully!
-    
-            {% else %}
-            {{ form.media }}
-            <form action="" method="POST" class="form-control">
-                {% csrf_token %}
-    
-                {{ form.as_p }}
-                <p>See "Your Reservations" below to change or cancel active bookings</p>
-                <button type="submit" class="btn-create animated fadeInUp scrollto">Create Booking</button>
-            </form>
-            
-            {% endif %}
-        </div>
-    </section>
-    <section id="booktable" class="booktable">
-        <div class="container">
-            <div class="section-title">
-                <h2>Your Reservations</h2>
-                <p>Here are your current reservations:</p>
+        </section>
+        <section id="booktable" class="booktable">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Your Reservations</h2>
+                    <p>Here are your current reservations:</p>
+                    <div class="row col-lg-6 pt-4 pt-lg-0 content">
+                        <table class="table table-sm">
+                            <thead class="t-head">
+                                <tr>
+                                    <th>Booking Id</th>
+                                    <th>Table Booked</th>
+                                    <th>Date Booked</th>
+                                    <th>Time booked</th>
+                                    <th>Change</th>
+                                    <th>Cancel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for reservation in reservations %}
+                                <tr>
+                                    <td>{{ reservation.booking_id }}</td>
+                                    <td>{{ reservation.table_number }}</td>
+                                    <td>{{ reservation.date }}</td>
+                                    <td>{{ reservation.start_time }} to {{ reservation.end_time }}</td>
+                                    <td><a href="{% url 'edit_reservation' reservation.booking_id %}">
+                                            <button class="btn-edit">Change</button>
+                                        </a>
+                                    </td>
+                                    <td><a href="{% url 'delete_reservation' reservation.booking_id %}">
+                                            <button class="btn-delete">Cancel</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="7">No reservations</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% else %}
+
+        <h1>You must be logged in to view this page</h1>
+
+    {% endif %}
+
+    <!-- End Book A Table Section -->
+
+    {% if request.user.is_authenticated %}
+
+        <section id="event_information" class=" event_information">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Event Information</h2>
+                    <p>Where and when?</p>
+                </div>
                 <div class="row col-lg-6 pt-4 pt-lg-0 content">
                     <table class="table table-sm">
                         <thead class="t-head">
                             <tr>
-                                <th>Booking Id</th>
-                                <th>Table Booked</th>
-                                <th>Date Booked</th>
-                                <th>Time booked</th>
-                                <th>Change</th>
-                                <th>Cancel</th>
+                                <th>Event</th>
+                                <th>Room</th>
+                                <th>Day</th>
+                                <th>Tables</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for booking in bookings %}
                             <tr>
-                                <td>{{ booking.booking_id }}</td>
-                                <td>{{ booking.table_number }}</td>
-                                <td>{{ booking.date }}</td>
-                                <td>{{ booking.start_time }} to {{ booking.end_time }}</td>
-                                <td><a href="{% url 'edit_reservation' booking.booking_id %}">
-                                        <button class="btn-edit">Change</button>
-                                    </a>
-                                </td>
-                                <td><a href="{% url 'delete_reservation' booking.booking_id %}">
-                                        <button class="btn-delete">Cancel</button>
-                                    </a>
-                                </td>
+                                <th>Stand Up</th>
+                                <td>Main Bar</td>
+                                <td>Mondays</td>
+                                <td>#40 - #61</td>
                             </tr>
-                            {% empty %}
                             <tr>
-                                <td>No reservations</td>
+                                <th>Quiz</th>
+                                <td>Main Bar</td>
+                                <td>Thursdays</td>
+                                <td>#40 - #61</td>
                             </tr>
-                            {% endfor %}
+                            <tr>
+                                <th>Live Music</th>
+                                <td>Main Bar</td>
+                                <td>Wednesdays, Fridays, Saturdays</td>
+                                <td>#40 - #61</td>
+                            </tr>
+                            <tr>
+                                <th>Food reservation</th>
+                                <td>Dining Room</td>
+                                <td>All</td>
+                                <td>#0 - #10</td>
+                            </tr>
+                            <tr>
+                                <th>Sporting Events</th>
+                                <td>Sports Room</td>
+                                <td>All*</td>
+                                <td>#20 - #31</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="event-table">
+                        <tbody>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>*Book a table close to a screen and we will tune that screen to your live event</td>
+                            </tr>
+                            <tr>
+                                <td>Tables can only be booked for times between 12:00 and 23:00</td>
+                            </tr>
+                            <tr>
+                                <td>Live events start at 20.00 - please book your table for at least an hour before</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div>
-    </section>
-    {% else %}
-    <h1>You must be logged in to view this page</h1>
-    {% endif %}
-</body>
-<!-- End Book A Table Section -->
-{% if request.user.is_authenticated %}
-<section id="event_information" class=" event_information">
-    <div class="container">
-        <div class="section-title">
-            <h2>Event Information</h2>
-            <p>Where and when?</p>
-        </div>
-        <div class="row col-lg-6 pt-4 pt-lg-0 content">
-            <table class="table table-sm">
-                <thead class="t-head">
-                    <tr>
-                        <th>Event</th>
-                        <th>Room</th>
-                        <th>Day</th>
-                        <th>Tables</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>Stand Up</th>
-                        <td>Main Bar</td>
-                        <td>Mondays</td>
-                        <td>#40 - #61</td>
-                    </tr>
-                    <tr>
-                        <th>Quiz</th>
-                        <td>Main Bar</td>
-                        <td>Thursdays</td>
-                        <td>#40 - #61</td>
-                    </tr>
-                    <tr>
-                        <th>Live Music</th>
-                        <td>Main Bar</td>
-                        <td>Wednesdays, Fridays, Saturdays</td>
-                        <td>#40 - #61</td>
-                    </tr>
-                    <tr>
-                        <th>Food reservation</th>
-                        <td>Dining Room</td>
-                        <td>All</td>
-                        <td>#0 - #10</td>
-                    </tr>
-                    <tr>
-                        <th>Sporting Events</th>
-                        <td>Sports Room</td>
-                        <td>All*</td>
-                        <td>#20 - #31</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="event-table">
-                <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>*Book a table close to a screen and we will tune that screen to your live event</td>
-                    </tr>
-                    <tr>
-                        <td>Tables can only be booked for times between 12:00 and 23:00</td>
-                    </tr>
-                    <tr>
-                        <td>Live events start at 20.00 - please book your table for at least an hour before</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-<section id="floorplan" class=" floorplan">
-    <div class="container">
-        <div class="section-title">
-            <h2>Floor Plan</h2>
-            <p>Pick where you would like to sit</p>
-            <div class="col-lg-12 order-1 order-lg-2">
-                <div class="floorplan-img">
-                    <img src="{% static 'media/floorplan-with-nums.jpg' %}" alt="" />
+        </section>
+        <section id="floorplan" class=" floorplan">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Floor Plan</h2>
+                    <p>Pick where you would like to sit</p>
+                    <div class="col-lg-12 order-1 order-lg-2">
+                        <div class="floorplan-img">
+                            <img src="{% static 'media/floorplan-with-nums.jpg' %}" alt="" />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-{% endif %}
+    {% endif %}
+
+</body>
 
 {% endblock %}

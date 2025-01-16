@@ -46,19 +46,24 @@ def edit_reservation(request, booking_id):
 
 @login_required
 def delete_reservation(request, booking_id):
-        booking = Reservation.objects.get(pk=booking_id)
-        booking.delete()
-        messages.success(request, "Your booking was deleted")
-        return redirect('reserve_table')
+    booking = Reservation.objects.get(pk=booking_id)
+    booking.delete()
+    messages.success(request, "Your booking was deleted")
+    return redirect('reserve_table')
 
 
 @login_required
 def get_bookings(request):
-    if current_user.is_superuser:
-            bookings = Reservation.objects.all()
+    if request.user.is_superuser:
+        # Fetch all reservations
+        booking = Reservation.objects.all()
+    elif request.user.is_authenticated:
+        # Fetch only the logged-in user's reservations
+        booking = Reservation.objects.filter(username=request.user)
     else:
-            bookings = Reservation.objects.filter(username=request.user, active_booking=True)
-    return render(request, 'booktable.html', {'bookings': bookings})
+        reservations = None
+    return render(request, 'booktable.html', {'booking': booking})
+    
 
 
 def get_booktable(request):
@@ -66,16 +71,16 @@ def get_booktable(request):
 
 
 def get_base(request):
-        return render(request, 'base.html')
+    return render(request, 'base.html')
 
 
 def get_index(request):
-        return render(request, 'index.html')
+    return render(request, 'index.html')
 
 
 def get_signup(request):
-        return render(request, 'account_signup.html')
+    return render(request, 'account_signup.html')
 
 
 def get_login(request):
-        return render(request, 'account_login.html')
+    return render(request, 'account_login.html')

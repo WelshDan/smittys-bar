@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = 'True'
 
 ALLOWED_HOSTS = [
-                '8000-welshdan-smittysbar-8dbkmoy0e5m.ws-eu116.gitpod.io',
+                '8000-welshdan-smittysbar-8dbkmoy0e5m.ws-eu117.gitpod.io',
                 '.herokuapp.com'
                 ]
 
@@ -177,7 +177,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-welshdan-smittysbar-8dbkmoy0e5m.ws-eu116.gitpod.io',
+    'https://8000-welshdan-smittysbar-8dbkmoy0e5m.ws-eu117.gitpod.io',
     'https://smittys-bar-e7b5536cbae9.herokuapp.com'
 ]
 
@@ -192,3 +192,9 @@ MESSAGE_TAGS = {
 }
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+
+# Celery Settings
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'

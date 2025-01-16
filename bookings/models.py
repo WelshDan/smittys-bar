@@ -54,15 +54,15 @@ TABLE_NUMBERS = (
 
 class Reservation(models.Model):
     now = timezone.now()
-    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user', default="")
+    username = models.ForeignKey(User, on_delete=models.CASCADE, default="")
     booking_id = models.AutoField(primary_key=True)
     table_number = models.CharField(
         max_length=20,
         choices=TABLE_NUMBERS,
         )
     date = models.DateField(default=timezone.now)
-    start_time = models.TimeField(default=now.hour)
-    end_time = models.TimeField(default=now.hour)
+    start_time = models.TimeField(default=timezone.now)
+    end_time = models.TimeField(default=timezone.now)
     active_booking = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
